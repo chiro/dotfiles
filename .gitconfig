@@ -1,0 +1,22 @@
+[user]
+	name = chiro
+	email = peanut2626@gmail.com
+
+[core]
+    autocrlf = false
+    safecrlf = true
+
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+
+[alias]
+    br = branch
+    ci = commit
+    co = checkout
+    df = diff
+    lg = log --pretty=oneline --graph --abbrev-commit --decorate
+    s = status
+    st = status
+    unstage = reset HEAD --

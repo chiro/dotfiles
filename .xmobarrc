@@ -1,0 +1,21 @@
+Config {
+  --font = "-misc-fixed-medium-r-normal--18-*-*-*-c-*-iso10646-1"
+  font = "xft:Ricty:style=Medium:size=18"
+  , bgColor = "#000"
+  , fgColor = "#fff"
+  , border = NoBorder
+  , borderColor = "gray"
+  , position = TopW L 90
+  , lowerOnStart = True
+  , commands =
+    [ Run StdinReader
+    , Run Cpu ["-L", "5", "-H", "50", "--low", "#6ff", "--normal", "#3fc", "--high", "#f33", "-t", "<total>%"] 10
+    , Run Memory ["-t", "<usedratio>%"] 10
+    , Run Swap ["-t", "<usedratio>%"] 10
+    , Run Network "eth0" ["-L", "10", "-H", "50", "--low", "#6ff", "--normal" , "#3fc", "--high", "#f33"] 10
+    , Run Date "%Y/%m/%d %H:%M:%S %Z" "date" 10
+    ]
+  , sepChar = "%"
+  , alignSep = "}{"
+  , template = "%StdinReader% }{ <fc=,#fff> </fc> P: %cpu% <fc=,#fff> </fc> M: %memory%, %swap% <fc=,#fff> </fc> %eth0% <fc=,#fff> </fc> <fc=#ccf>%date%</fc>"
+  }

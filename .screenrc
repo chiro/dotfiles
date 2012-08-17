@@ -1,0 +1,18 @@
+escape ^Zz
+
+autodetach on
+startup_message off
+defscrollback 10000
+
+defkanji utf-8
+defencoding utf-8
+encoding utf-8 utf-8
+
+vbell off
+bell_msg "^G"
+shell -$SHELL
+term xterm-color
+
+bind l windowlist
+
+caption always "%{= wb} %-w%{=bu dr}%n %t%{-}%+w %= %{=b wk} [%l] %{=b wb}%y/%m/%d %{=b wm}%c"
