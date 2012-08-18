@@ -52,7 +52,7 @@
 (setq default-frame-alist initial-frame-alist)
 
 (setq frame-title-format
-      (concat "%b - emacs@ "))
+      (concat "%b - emacs@" system-name))
 
 (set-face-attribute 'default nil
                     :family "Ricty"
