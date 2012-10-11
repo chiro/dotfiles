@@ -1,2 +1,1 @@
-
 (require 'anything-startup)
