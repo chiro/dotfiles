@@ -218,10 +218,12 @@ myManageHook = composeAll
     , className =? "Downloads"      --> doFloat
     , fmap ("Skype" `isInfixOf`) className --> doShift "Skype"
     , resource  =? "desktop_window" --> doIgnore
-    , resource  =? "kdesktop"       --> doIgnore 
+    , resource  =? "kdesktop"       --> doIgnore
     , className =? "Firefox"        --> doShift "Web"
+    , fmap ("Chromium" `isInfixOf`) className --> doShift "Web"
     , className =? "emacs"          --> doShift "emacs"
     , className =? "Emacs"          --> doShift "emacs"
+    , manageDocks
     ]
 
 ------------------------------------------------------------------------
