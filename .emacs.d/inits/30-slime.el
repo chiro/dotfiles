@@ -1,3 +1,4 @@
+(add-to-list 'load-path "~/.emacs.d/elisp/slime")
 ;;==================================================
 ;; slime
 ;;==================================================
@@ -17,7 +18,7 @@
   (dolist (buf (buffer-list))
     (when (or (string= (buffer-name buf) slime-event-buffer-name)
               (string-match "^\\*inferior-lisp*" (buffer-name buf))
-              (string-match                  
+              (string-match
                "^\\*slime-repl\\[[0-9]+\\]\\*$" (buffer-name buf))
               (string-match "^\\*sldb .*\\*$" (buffer-name buf))
               (string-match "^\\*slime-*" (buffer-name buf)))

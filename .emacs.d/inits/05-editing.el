@@ -1,8 +1,7 @@
-
 ;; delete region
 (delete-selection-mode t)
 
-;; not make ~file
+;; Don't make ~file
 (setq make-backup-files nil)
 
 (setq-default indent-tabs-mode nil ; no use tab mode
@@ -14,6 +13,16 @@
 
 ; 最近使ったファイル
 (recentf-mode)
+
+;; Ignore case when do completion
+(setq completion-ignore-case t)
+
+;; auto reload the buffer.
+(global-auto-revert-mode t)
+
+;; uniquify
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 
 ;==================================================
 ; スクリプトを保存するとき、自動的に chmod +x する

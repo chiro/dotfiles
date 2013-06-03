@@ -42,11 +42,10 @@
 ;;==================================================
 (setq initial-frame-alist
       (append (list
-               '(foreground-color . "white")
-               '(background-color . "black")
-               '(border-color     . "gray")
-               '(mouse-color      . "white")
-               '(cursor-color     . "white")
+               '(top              . 0)
+               '(left             . 1000)
+               '(width            . 120)
+               '(height           . 70)
                )
               initial-frame-alist))
 (setq default-frame-alist initial-frame-alist)
@@ -54,8 +53,9 @@
 (setq frame-title-format
       (concat "%b - emacs@" system-name))
 
-(set-face-attribute 'default nil
-                    :family "Ricty"
-                    :height 120)
-(set-fontset-font nil 'japanese-jisx0208 (font-spec :family "Ricty"))
+(cond (window-system
+       (set-face-attribute 'default nil
+                           :family "Ricty"
+                           :height 120)
+       (set-fontset-font nil 'japanese-jisx0208 (font-spec :family "Ricty"))))
 
