@@ -12,6 +12,7 @@ vbell off
 bell_msg "^G"
 shell -$SHELL
 term xterm-color
+defflow off
 
 bind l windowlist
 
