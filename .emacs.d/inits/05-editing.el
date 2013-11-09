@@ -24,6 +24,8 @@
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 
+(setq-default skk-kutouten-type 'en)
+
 ;==================================================
 ; スクリプトを保存するとき、自動的に chmod +x する
 ;==================================================

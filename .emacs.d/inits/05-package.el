@@ -3,7 +3,7 @@
 ;; Marmalade
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/")
-             '("melpa" . "http://melpa.milkbox.net/packages/"))
+             '("melpa"     . "http://melpa.milkbox.net/packages/"))
 (setq package-user-dir (concat user-emacs-directory "elpa"))
 
 (package-initialize)
@@ -12,9 +12,13 @@
   '(auto-complete
     ac-slime
     haskell-mode
+    js2-mode
+    slime
+    slime-fuzzy
+    slime-repl
+    solarized-theme
     tuareg
     org
-    solarized-theme
     )
   "A list of packages to install from MELPA or ELPA at launch.")
 

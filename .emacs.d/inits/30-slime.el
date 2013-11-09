@@ -1,4 +1,3 @@
-(add-to-list 'load-path "~/.emacs.d/elisp/slime")
 ;;==================================================
 ;; slime
 ;;==================================================
@@ -27,9 +26,7 @@
 (defun slime-smart-quit ()
   (interactive)
   (when (slime-connected-p)
-    (if (equal (slime-machine-instance) "chir-laptop")
-        (slime-quit-lisp)
-      (slime-disconnect)))
+    (slime-disconnect))
   (slime-kill-all-buffers))
 
 (add-hook 'kill-emacs-hook 'slime-smart-quit)

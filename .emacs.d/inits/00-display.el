@@ -36,26 +36,26 @@
 
 (setq-default line-spacing 0)
 
+(when (window-system)
+  (setq frame-title-format
+        (concat "%b - emacs@" system-name))
 
-;;==================================================
-;; for GUI
-;;==================================================
-(setq initial-frame-alist
-      (append (list
-               '(top              . 0)
-               '(left             . 1000)
-               '(width            . 120)
-               '(height           . 70)
-               )
-              initial-frame-alist))
-(setq default-frame-alist initial-frame-alist)
+  (set-face-attribute 'default nil
+                      :family "Ricty"
+                      :height 120)
+  (set-fontset-font nil 'japanese-jisx0208 (font-spec :family "Ricty"))
 
-(setq frame-title-format
-      (concat "%b - emacs@" system-name))
-
-(cond (window-system
-       (set-face-attribute 'default nil
-                           :family "Ricty"
-                           :height 120)
-       (set-fontset-font nil 'japanese-jisx0208 (font-spec :family "Ricty"))))
-
+  ;; カーソル行をハイライト
+  (defface hlline-face
+    '((((class color)
+        (background dark))
+       (:background "dark slate gray"))
+      (((class color)
+        (background light))
+       (:background "Gray"))
+      (t
+       ()))
+    "*Face used by hl-line.")
+  (setq hl-line-face 'hlline-face)
+  (global-hl-line-mode)
+) ;; end (when (window-system)
