@@ -1,19 +1,30 @@
 escape ^Zz
 
+zombie ^[
+
 autodetach on
 startup_message off
-defscrollback 10000
+defscrollback 8192
 
-defkanji utf-8
 defencoding utf-8
 encoding utf-8 utf-8
+utf8 on on
 
 vbell off
 bell_msg "^G"
 shell -$SHELL
-term xterm-color
 defflow off
+
+defbce on
+term "screen-256color"
+termcapinfo xterm* 'Co#256:pa#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm:'
+
+multiuser on
+acladd $USER
 
 bind l windowlist
 
-caption always "%{= wb} %-w%{=bu dr}%n %t%{-}%+w %= %{=b wk} [%l] %{=b wb}%y/%m/%d %{=b wm}%c"
+caption always "%{= wb} %= %{=b wk} [%l] %{=b wb}%y/%m/%d %{=b wm}%c"
+hardstatus alwayslastline "$SCRHSTCLR%H%{-} %-W%{=b bw}%n %t%{-}%+w"
+
+sorendition "+rb .G"
