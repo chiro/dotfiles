@@ -13,10 +13,15 @@
 
 [alias]
     br = branch
+    b = branch -v
     ci = commit
     co = checkout
     df = diff
     lg = log --pretty=oneline --graph --abbrev-commit --decorate
     s = status
     st = status
+    sh = show
     unstage = reset HEAD --
+
+[push]
+    default = simple
