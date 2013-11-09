@@ -5,7 +5,7 @@
 (add-hook 'lisp-mode-hook (lambda () (slime-mode t)))
 (add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))
 (setq inferior-lisp-program "sbcl")
-(slime-setup '(slime-repl slime-fancy slime-banner))
+(slime-setup '(slime-repl))
 (setq slime-net-coding-system 'utf-8-unix)
 
 ;;==================================================

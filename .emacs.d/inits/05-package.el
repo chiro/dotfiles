@@ -13,8 +13,9 @@
     ac-slime
     haskell-mode
     js2-mode
+    rspec-mode
+    ruby-block
     slime
-    slime-fuzzy
     slime-repl
     solarized-theme
     tuareg
