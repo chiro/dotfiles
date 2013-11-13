@@ -1,9 +1,9 @@
 (require 'package)
 
-;; Marmalade
 (add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/")
-             '("melpa"     . "http://melpa.milkbox.net/packages/"))
+  '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives
+  '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (setq package-user-dir (concat user-emacs-directory "elpa"))
 
 (package-initialize)
@@ -12,6 +12,9 @@
   '(auto-complete
     ac-slime
     haskell-mode
+    helm
+    helm-descbinds
+    helm-migemo
     js2-mode
     rspec-mode
     ruby-block
