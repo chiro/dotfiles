@@ -8,6 +8,18 @@
 (slime-setup '(slime-repl))
 (setq slime-net-coding-system 'utf-8-unix)
 
+(eval-after-load 'slime
+  '(progn
+     (setq slime-protocol-version 'ignore)
+     (setq slime-net-coding-system 'utf-8-unix)
+     (slime-setup '(slime-repl slime-fancy))
+     (setq slime-complete-symbol*-fancy t)
+     (setq slime-complete-symbol-function 'slime-fuzzy-complete-symbol)
+
+     (add-hook 'lisp-mode-hook (lambda () (slime-mode t)))
+     (add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))
+     (setq inferior-lisp-program "sbcl")))
+
 ;;==================================================
 ;; slime utility
 ;;==================================================
@@ -37,4 +49,3 @@
 (require 'ac-slime)
 (add-hook 'slime-mode-hook 'set-up-slime-ac)
 (add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
-
