@@ -20,6 +20,8 @@
 ;; auto reload the buffer.
 (global-auto-revert-mode t)
 
+(setq-default skk-kutouten-type 'en)
+
 ;; uniquify
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
