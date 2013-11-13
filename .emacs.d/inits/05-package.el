@@ -14,7 +14,6 @@
     haskell-mode
     helm
     helm-descbinds
-    helm-migemo
     js2-mode
     rspec-mode
     ruby-block
