@@ -1,10 +1,5 @@
 --
--- xmonad example config file.
---
--- A template showing all available configuration hooks,
--- and how to override the defaults in your own xmonad.hs conf file.
---
--- Normally, you'd only override those defaults you care about.
+-- My xmonad config file.
 --
 
 import XMonad
@@ -22,26 +17,6 @@ import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 import Data.List
 
--- The preferred terminal program, which is used in a binding below and by
--- certain contrib modules.
---
-myTerminal = "urxvtc -fn \"xft:Ricty:pixelsize=16\""
-
--- Whether focus follows the mouse pointer.
-myFocusFollowsMouse :: Bool
-myFocusFollowsMouse = False
-
--- Width of the window border in pixels.
---
-myBorderWidth = 1
-
--- modMask lets you specify which modkey you want to use. The default
--- is mod1Mask ("left alt").  You may also consider using mod3Mask
--- ("right alt"), which does not conflict with emacs keybindings. The
--- "windows key" is usually mod4Mask.
---
-myModMask = mod4Mask
-
 -- The default number of workspaces (virtual screens) and their names.
 -- By default we use numeric strings, but any string may be used as a
 -- workspace name. The number of workspaces is determined by the length
@@ -52,11 +27,6 @@ myModMask = mod4Mask
 -- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
 --
 myWorkspaces = ["term","emacs","Web","music","5","6","7","8","9"]
-
--- Border colors for unfocused and focused windows, respectively.
---
-myNormalBorderColor  = "#dddddd"
-myFocusedBorderColor = "#ff0000"
 
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
@@ -174,14 +144,6 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 ------------------------------------------------------------------------
 -- Layouts:
 
--- You can specify and transform your layouts by modifying these values.
--- If you change layout bindings be sure to use 'mod-shift-space' after
--- restarting (with 'mod-q') to reset your layout state to the new
--- defaults, as xmonad preserves your old layout settings by default.
---
--- The available layouts.  Note that each layout is separated by |||,
--- which denotes layout choice.
---
 myLayout = tiled ||| Mirror tiled ||| Full
   where
      -- default tiling algorithm partitions the screen into two panes
@@ -198,24 +160,10 @@ myLayout = tiled ||| Mirror tiled ||| Full
 
 ------------------------------------------------------------------------
 -- Window rules:
-
--- Execute arbitrary actions and WindowSet manipulations when managing
--- a new window. You can use this to, for example, always float a
--- particular program, or have a client always appear on a particular
--- workspace.
---
--- To find the property name associated with a program, use
--- > xprop | grep WM_CLASS
--- and click on the client you're interested in.
---
--- To match on the WM_NAME, you can use 'title' in the same way that
--- 'className' and 'resource' are used below.
---
 myManageHook = composeAll
     [ className =? "MPlayer"        --> doFloat
     , className =? "Gimp"           --> doFloat
     , className =? "Downloads"      --> doFloat
-    , fmap ("Skype" `isInfixOf`) className --> doShift "Skype"
     , resource  =? "desktop_window" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore
     , className =? "Firefox"        --> doShift "Web"
@@ -225,17 +173,6 @@ myManageHook = composeAll
     , fmap ("quodlibet" `isInfixOf`) className --> doShift "music"
     , manageDocks
     ]
-
-------------------------------------------------------------------------
--- Event handling
-
--- * EwmhDesktops users should change this to ewmhDesktopsEventHook
---
--- Defines a custom handler function for X Events. The function should
--- return (All True) if the default handler is to be run afterwards. To
--- combine event hooks use mappend or mconcat from Data.Monoid.
---
-myEventHook = mempty
 
 ------------------------------------------------------------------------
 -- Status bars and logging
@@ -260,44 +197,27 @@ myLogHook h = dynamicLogWithPP PP {
   ppExtras          = [],
   ppOutput          = hPutStrLn h }
 
-------------------------------------------------------------------------
--- Startup hook
-
--- Perform an arbitrary action each time xmonad starts or is restarted
--- with mod-q.  Used by, e.g., XMonad.Layout.PerWorkspace to initialize
--- per-workspace layout choices.
---
--- By default, do nothing.
-myStartupHook = return ()
-
-------------------------------------------------------------------------
--- Now run xmonad with all the defaults we set up.
-
--- Run xmonad with the settings you specify. No need to modify this.
---
+-- Main
 main = do
   xmobarHandle <- spawnPipe "xmobar"
   trayerHandle <- spawnPipe "trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 10 --padding 0 --transparent true --tint 0x000000 --height 26 --distance 2"
   spawn "emacs"
-  spawn "chromium"
-  spawn myTerminal
   xmonad (defaults xmobarHandle)
 
--- A structure containing your configuration settings, overriding
--- fields in the default config. Any you don't override, will
--- use the defaults defined in xmonad/XMonad/Config.hs
---
--- No need to modify this.
---
 defaults xmobar = defaultConfig {
       -- simple stuff
-        terminal           = myTerminal,
-        focusFollowsMouse  = myFocusFollowsMouse,
-        borderWidth        = myBorderWidth,
-        modMask            = myModMask,
+        terminal           = "urxvtc -fn \"xft:Ricty:pixelsize=16\"",
+        focusFollowsMouse  = False,
+        borderWidth        = 1,
+
+        -- I use Muhenkan as modMask.
+        -- See also .xmodmap.
+        modMask            = mod4Mask,
+
         workspaces         = myWorkspaces,
-        normalBorderColor  = myNormalBorderColor,
-        focusedBorderColor = myFocusedBorderColor,
+
+        normalBorderColor  = "#dddddd", -- gray
+        focusedBorderColor = "#ff0000", -- red
 
       -- key bindings
         keys               = myKeys,
@@ -306,7 +226,7 @@ defaults xmobar = defaultConfig {
       -- hooks, layouts
         layoutHook         = avoidStruts $ myLayout,
         manageHook         = myManageHook,
-        handleEventHook    = myEventHook,
+        handleEventHook    = mempty,
         logHook            = myLogHook xmobar,
-        startupHook        = myStartupHook
+        startupHook        = return () -- do nothing.
     }
