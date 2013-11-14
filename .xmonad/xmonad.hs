@@ -25,8 +25,7 @@ import Data.List
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
---myTerminal      = "urxvtc -fn \"xft:Ricty\" -fg white -bg black"
-myTerminal = "urxvtc"
+myTerminal = "urxvtc -fn \"xft:Ricty:pixelsize=16\""
 
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
@@ -34,14 +33,14 @@ myFocusFollowsMouse = False
 
 -- Width of the window border in pixels.
 --
-myBorderWidth   = 1
+myBorderWidth = 1
 
 -- modMask lets you specify which modkey you want to use. The default
 -- is mod1Mask ("left alt").  You may also consider using mod3Mask
 -- ("right alt"), which does not conflict with emacs keybindings. The
 -- "windows key" is usually mod4Mask.
 --
-myModMask       = mod4Mask
+myModMask = mod4Mask
 
 -- The default number of workspaces (virtual screens) and their names.
 -- By default we use numeric strings, but any string may be used as a
@@ -52,7 +51,7 @@ myModMask       = mod4Mask
 --
 -- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
 --
-myWorkspaces    = ["term","emacs","Web","Skype","5","6","7","8","9"]
+myWorkspaces = ["term","emacs","Web","music","5","6","7","8","9"]
 
 -- Border colors for unfocused and focused windows, respectively.
 --
@@ -223,6 +222,7 @@ myManageHook = composeAll
     , fmap ("Chromium" `isInfixOf`) className --> doShift "Web"
     , className =? "emacs"          --> doShift "emacs"
     , className =? "Emacs"          --> doShift "emacs"
+    , fmap ("quodlibet" `isInfixOf`) className --> doShift "music"
     , manageDocks
     ]
 
@@ -253,6 +253,7 @@ myLogHook h = dynamicLogWithPP PP {
   ppSep             = wrap " " " " $ xmobarColor "" "#fff" " ",
   ppWsSep           = " ",
   ppTitle           = xmobarColor "#0f0" "" . shorten 60,
+  ppTitleSanitize   = id,
   ppLayout          = \s -> "", --id,
   ppOrder           = id,
   ppSort            = getSortByIndex,
@@ -277,6 +278,9 @@ myStartupHook = return ()
 main = do
   xmobarHandle <- spawnPipe "xmobar"
   trayerHandle <- spawnPipe "trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 10 --padding 0 --transparent true --tint 0x000000 --height 26 --distance 2"
+  spawn "emacs"
+  spawn "chromium"
+  spawn myTerminal
   xmonad (defaults xmobarHandle)
 
 -- A structure containing your configuration settings, overriding
