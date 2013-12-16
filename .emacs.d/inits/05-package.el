@@ -11,6 +11,7 @@
 (defvar my/packages
   '(auto-complete
     ac-slime
+    anzu
     haskell-mode
     helm
     helm-descbinds
