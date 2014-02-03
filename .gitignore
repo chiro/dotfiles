@@ -1,6 +1,61 @@
+## Emacs
 *~
+/elpa/
+tramp
+auto-save-list
 .emacs.d/elisp
-.emacs.d/elpa
 .emacs.d/abbrev_defs
 .emacs.d/ac-comphist.dat
-.emacs.d/tramp
+/eshell/history
+/eshell/lastdir
+
+## C, C++
+### Compiled Object files
+*.slo
+*.lo
+*.o
+*.ko
+*.obj
+
+### Compiled libraries
+*.so
+*.dll
+*.la
+*.a
+
+### Executables
+*.exe
+*.out
+
+## Coq
+*.vo
+*.glob
+*.v.d
+
+## Elisp
+*.elc
+
+## Haskell
+dist/
+cabal-dev/
+*.o
+*.hi
+*.chi
+*.chs.h
+.cabal-sandbox/
+cabal.sandbox.config
+cabal.config
+
+## OCaml
+*.annot
+*.cmo
+*.cma
+*.cmi
+*.a
+*.o
+*.cmx
+*.cmxa
+*.cmxs
+
+## Vagrant
+.vagrant/
