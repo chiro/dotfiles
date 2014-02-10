@@ -1,6 +1,6 @@
 [user]
-	name = chiro
-	email = peanut2626@gmail.com
+    name = chiro
+    email = peanut2626@gmail.com
 
 [core]
     autocrlf = false
@@ -23,6 +23,7 @@
     st = status
     sh = show
     unstage = reset HEAD --
+    rb = rebase
 
 [push]
     default = simple
