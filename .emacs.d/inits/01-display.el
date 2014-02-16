@@ -20,9 +20,6 @@
 ;; regionに色をつける
 (setq transient-mark-mode t)
 
-;; scroll barを消す
-(set-scroll-bar-mode nil)
-
 ;; 左に行番号を表示
 (global-linum-mode t)
 (set-face-attribute 'linum nil
@@ -39,6 +36,9 @@
 (when (window-system)
   (setq frame-title-format
         (concat "%b - emacs@" system-name))
+
+  ;; Hide scroll bar
+  (set-scroll-bar-mode nil)
 
   (set-face-attribute 'default nil
                       :family "Ricty"
