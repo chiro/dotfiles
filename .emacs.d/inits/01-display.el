@@ -42,7 +42,7 @@
 
   (set-face-attribute 'default nil
                       :family "Ricty"
-                      :height 120)
+                      :height 100)
   (set-fontset-font nil 'japanese-jisx0208 (font-spec :family "Ricty"))
 
   ;; カーソル行をハイライト
@@ -58,4 +58,11 @@
     "*Face used by hl-line.")
   (setq hl-line-face 'hlline-face)
   (global-hl-line-mode)
-) ;; end (when (window-system)
+
+  (setq default-frame-alist
+        (append (list
+                 '(left . 1000)
+                 '(width . 142)
+                 '(height . 74))
+                default-frame-alist))
+) ;; end (when (window-system))
