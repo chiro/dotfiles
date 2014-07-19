@@ -1,3 +1,4 @@
+;;; Code:
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
 (setq el-get-generate-autoloads nil)
@@ -11,3 +12,4 @@
 
 ;; Install packages by el-get
 (el-get 'sync '(howm))
+(el-get 'sync '(ddskk))
