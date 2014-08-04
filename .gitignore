@@ -6,6 +6,8 @@ auto-save-list
 .emacs.d/elisp
 .emacs.d/abbrev_defs
 .emacs.d/ac-comphist.dat
+.emacs.d/.cask
+.emacs.d/el-get
 /eshell/history
 /eshell/lastdir
 
