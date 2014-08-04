@@ -6,6 +6,8 @@ autodetach on
 startup_message off
 defscrollback 8192
 
+cjkwidth on
+
 defencoding utf-8
 encoding utf-8 utf-8
 utf8 on on
