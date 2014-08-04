@@ -21,8 +21,6 @@
 (depends-on "init-loader")
 (depends-on "solarized-theme")
 (depends-on "org")
-(depends-on "ddskk")
-(depends-on "howm")
 (depends-on "go-mode")
 (depends-on "markdown-mode")
 (depends-on "tss")
