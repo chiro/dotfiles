@@ -206,7 +206,7 @@ main = do
 
 defaults xmobar = defaultConfig {
       -- simple stuff
-        terminal           = "urxvtc -fn \"xft:Ricty:pixelsize=16\"",
+        terminal           = "urxvtc -fn \"xft:Ricty:pixelsize=13\"",
         focusFollowsMouse  = False,
         borderWidth        = 1,
 
