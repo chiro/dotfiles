@@ -1,4 +1,5 @@
 ;;==================================================
 ;; Proof General
 ;;==================================================
-(load-file "~/.emacs.d/elisp/ProofGeneral/generic/proof-site.el")
+;; I don't need any configuration about ProofGeneral.
+;; el-get loads ProofGeneral.

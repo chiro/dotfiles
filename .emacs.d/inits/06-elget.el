@@ -22,8 +22,19 @@
                :features ("skk-setup")
                :build `((,el-get-emacs "-batch" "-q" "-no-site-file" "-l" "SKK-MK" "-f" "SKK-MK-compile")
                         (,el-get-emacs "-batch" "-q" "-no-site-file" "-l" "SKK-MK" "-f" "SKK-MK-compile-info")
-                        ("mv" "skk-setup.el.in" "skk-setup.el")))))
+                        ("mv" "skk-setup.el.in" "skk-setup.el")))
+        (:name my-ProofGeneral
+               :description "ProofGeneral"
+               :website "http://proofgeneral.inf.ed.ac.uk"
+               :type http-tar
+               :options ("xzf")
+               :url "http://proofgeneral.inf.ed.ac.uk/releases/ProofGeneral-4.2.tgz"
+               :build `(("cd" "ProofGeneral")
+                        ("make" "clean"))
+               :load ("ProofGeneral/generic/proof-site.el")
+               :info "./ProofGeneral/doc/")))
 
 ;; Install packages by el-get
 (el-get 'sync '(howm))
 (el-get 'sync '(ddskk-15.1))
+(el-get 'sync '(my-ProofGeneral))
