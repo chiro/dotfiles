@@ -27,3 +27,8 @@
 (depends-on "calfw")
 (depends-on "web-mode")
 (depends-on "yaml-mode")
+;; Company mode
+(depends-on "company")
+(depends-on "company-ghc")
+(depends-on "company-go")
+(depends-on "company-c-headers")

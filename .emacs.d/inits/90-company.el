@@ -1,0 +1,6 @@
+(require 'company)
+(require 'company-ghc)
+(require 'company-go)
+(add-to-list 'company-backends 'company-ghc)
+(add-to-list 'company-backends 'company-go)
+(add-hook 'after-init-hook 'global-company-mode)
