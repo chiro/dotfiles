@@ -1,8 +1,10 @@
-(setq load-path (cons "~/.emacs.d/elisp" load-path))
+(setq emacsd-path (expand-file-name user-emacs-directory))
 
-(require 'cask "~/.cask/cask.el")
+(add-to-list 'load-path (concat emacsd-path "elisp"))
+
+(require 'cask (expand-file-name "~/.cask/cask.el"))
 (cask-initialize)
 
 ;; init-loader
 (require 'init-loader)
-(init-loader-load "~/.emacs.d/inits")
+(init-loader-load (concat emacsd-path "inits"))
