@@ -9,6 +9,7 @@
 (depends-on "haskell-mode")
 (depends-on "helm")
 (depends-on "helm-descbinds")
+(depends-on "helm-ghq")
 (depends-on "js2-mode")
 (depends-on "json-mode")
 ;; Ruby
