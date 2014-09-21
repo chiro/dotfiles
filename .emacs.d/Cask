@@ -6,6 +6,7 @@
 (depends-on "anzu")
 (depends-on "flycheck")
 (depends-on "flycheck-haskell")
+(depends-on "google-c-style")
 (depends-on "haskell-mode")
 (depends-on "helm")
 (depends-on "helm-descbinds")

@@ -1,10 +1,10 @@
 ;==================================================
 ; c-mode, c++-mode
 ;==================================================
-(add-hook 'c-mode-common-hook
-          '(lambda ()
-             (c-set-style "k&r")
-             (setq c-basic-offset 4)))
+(add-hook 'c-mode-common-hook 'google-set-c-style)
+(add-hook 'c-mode-common-hook 'google-make-newline-indent)
+
+(setq c-hungry-delete-key t)
 
 (setq auto-mode-alist
       (append
