@@ -5,7 +5,7 @@
 (helm-descbinds-mode)
 
 (define-key global-map (kbd "M-x") 'helm-M-x)
-(define-key global-map (kbd "C-x C-f") 'helm-for-files)
+(define-key global-map (kbd "C-x f") 'helm-for-files)
 
 ;; hack for C-h
 (eval-after-load 'helm
