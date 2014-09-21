@@ -2,7 +2,7 @@
 ; haskell mode
 ;==================================================
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
-(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+(add-hook 'haskell-mode-hook 'haskell-indentation-mode)
 (custom-set-variables
  '(haskell-tags-on-save t)
  '(haskell-process-suggest-remove-import-lines t)
