@@ -13,6 +13,7 @@
 (depends-on "helm-ghq")
 (depends-on "js2-mode")
 (depends-on "json-mode")
+(depends-on "popwin")
 ;; Ruby
 (depends-on "ruby-block")
 (depends-on "rspec-mode")
