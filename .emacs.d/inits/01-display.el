@@ -38,7 +38,6 @@
         (concat "%b - emacs@" system-name))
 
   ;; Hide scroll bar
-  (set-horizontal-scroll-bar-mode nil)
   (set-scroll-bar-mode nil)
 
   (set-face-attribute 'default nil

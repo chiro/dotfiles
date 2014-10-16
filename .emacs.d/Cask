@@ -7,7 +7,10 @@
 (depends-on "flycheck")
 (depends-on "flycheck-haskell")
 (depends-on "google-c-style")
+;; Haskell
 (depends-on "haskell-mode")
+(depends-on "hamlet-mode")
+
 (depends-on "helm")
 (depends-on "helm-descbinds")
 (depends-on "helm-ghq")
@@ -17,6 +20,7 @@
 ;; Ruby
 (depends-on "ruby-block")
 (depends-on "rspec-mode")
+(depends-on "haml-mode")
 ;; Scala
 (depends-on "sbt-mode")
 (depends-on "scala-mode2")
@@ -35,3 +39,7 @@
 (depends-on "company-ghc")
 (depends-on "company-go")
 (depends-on "company-c-headers")
+;; git
+(depends-on "git-commit-mode")
+(depends-on "git-rebase-mode")
+(depends-on "git-gutter-fringe")
