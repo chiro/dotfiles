@@ -29,8 +29,7 @@
                :type http-tar
                :options ("xzf")
                :url "http://proofgeneral.inf.ed.ac.uk/releases/ProofGeneral-4.2.tgz"
-               :build `(("cd" "ProofGeneral")
-                        ("make" "clean"))
+               :build `(("cd" "ProofGeneral"))
                :load ("ProofGeneral/generic/proof-site.el")
                :info "./ProofGeneral/doc/")))
 
