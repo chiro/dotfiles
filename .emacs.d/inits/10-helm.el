@@ -1,4 +1,5 @@
 (require 'helm-config)
+(require 'helm-ghq)
 
 ;; helm-describe-bind
 (require 'helm-descbinds)
@@ -8,13 +9,9 @@
 (define-key global-map (kbd "C-x f") 'helm-for-files)
 
 ;; hack for C-h
-(eval-after-load 'helm
-  '(define-key helm-map (kbd "C-h") 'delete-backward-char))
+(with-eval-after-load 'helm
+  (define-key helm-map (kbd "C-h") 'delete-backward-char))
 
-;; helm-ghq
-(require 'helm-ghq)
-
-(require 'helm-files)
 (defadvice helm-for-files
     (around helm-for-files-no-highlight activate)
   (let ((helm-mp-highlight-delay nil))
@@ -23,7 +20,7 @@
 (defconst helm-for-files-preferred-list
   '(helm-source-buffers-list
     helm-source-recentf
-    helm-source-file-cache
     helm-source-ghq
+    helm-source-file-cache
     helm-source-files-in-current-dir
     ))

@@ -8,3 +8,6 @@
 (require 'server)
 (unless (server-running-p)
   (server-start))
+
+;;
+(setq require-final-newline t)
