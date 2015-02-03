@@ -39,7 +39,10 @@
 (depends-on "company-ghc")
 (depends-on "company-go")
 (depends-on "company-c-headers")
+
 ;; git
 (depends-on "git-commit-mode")
 (depends-on "git-rebase-mode")
 (depends-on "git-gutter")
+
+(depends-on "pretty-mode")
