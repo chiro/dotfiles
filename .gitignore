@@ -46,7 +46,6 @@ cabal-dev/
 *.chs.h
 .cabal-sandbox/
 cabal.sandbox.config
-cabal.config
 
 ## OCaml
 *.annot
