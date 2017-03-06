@@ -1,6 +1,6 @@
 [user]
     name = chiro
-    email = peanut2626@gmail.com
+    email = i@chir.jp
 
 [core]
     autocrlf = false
@@ -27,3 +27,6 @@
 
 [push]
     default = simple
+
+[ghq]
+    root = ~/src
