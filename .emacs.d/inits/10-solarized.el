@@ -1,4 +1,3 @@
-(when (window-system)
-  (require 'solarized-theme)
-  (load-theme 'solarized-dark t)
-)
+(use-package solarized-theme
+  :if window-system
+  :config (load-theme 'solarized-dark t))

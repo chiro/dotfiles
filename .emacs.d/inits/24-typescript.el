@@ -1,10 +1,15 @@
-(require 'typescript)
-(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
+;==================================================
+; typescript-mode
+;==================================================
+;;; Code:
 
-(require 'tss)
+(use-package typescript
+  :mode (("\\.ts" . typescript-mode)))
 
-;; Key bindings
-(setq tss-popup-help-key "C-:")
-(setq tss-jump-to-definition-key "C->")
+(use-package tss
+  :bind (("C-:" . tss-popup-help-key)
+         ("C->" . tss-jump-to-definition-key))
+  :config (tss-config-default))
 
-(tss-config-default)
+(provide '24-typescript)
+;;; 24-typescript.el ends here

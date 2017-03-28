@@ -23,12 +23,12 @@
 (setq-default skk-kutouten-type 'en)
 
 ;; uniquify
-(require 'uniquify)
-(setq uniquify-buffer-name-style 'post-forward-angle-brackets)
+(use-package uniquify
+  :defer 1
+  :config
+  (setq uniquify-buffer-name-style 'post-forward-angle-brackets))
 
 (setq-default skk-kutouten-type 'en)
-
-(defalias 'yes-or-no-p 'y-or-n-p)
 
 ;==================================================
 ; スクリプトを保存するとき、自動的に chmod +x する
@@ -46,4 +46,3 @@
                 (set-file-modes name (logior mode (logand (/ mode 4) 73)))
                 (message (concat "Wrote " name " (+x)"))))))))
 (add-hook 'after-save-hook 'make-file-executable)
-

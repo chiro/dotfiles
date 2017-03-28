@@ -1,6 +1,8 @@
-(require 'company)
-(require 'company-ghc)
-(require 'company-go)
-(add-to-list 'company-backends 'company-ghc)
-(add-to-list 'company-backends 'company-go)
-(add-hook 'after-init-hook 'global-company-mode)
+(use-package company
+  :defer 2
+  :config
+  (use-package company-ghc
+    :config (add-to-list 'company-backends 'company-ghc))
+  (use-package company-go
+     :config (add-to-list 'company-backends 'company-go))
+  (global-company-mode))

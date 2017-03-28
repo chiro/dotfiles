@@ -7,9 +7,11 @@
  '(haskell-process-auto-import-loaded-modules t)
  '(haskell-process-log t))
 
-(with-eval-after-load 'haskell-mode
-  (require 'ghc)
-
+(use-package haskell-mode
+  :ensure t
+  :mode (("\\.hs$" . haskell-mode))
+  :config
+  (use-package ghc)
   (add-hook 'haskell-mode-hook 'my/haskell-mode-hook)
   (setq ghc-module-command (executable-find "ghc-mod")))
 
@@ -19,14 +21,4 @@
 
 (defun my/haskell-mode-hook ()
   (turn-on-haskell-doc-mode)
-  (turn-on-haskell-indentation)
-  (setq flycheck-checker 'haskell-ghc)
-
-  (ghc-abbrev-init)
-  (ghc-type-init)
-  (unless ghc-initialized
-    (ghc-comp-init)
-    (setq ghc-initialized t))
-
-  ;; for auto-complete
-  (add-to-list 'ac-sources 'ac-source-ghc-mod))
+  (turn-on-haskell-indentation))

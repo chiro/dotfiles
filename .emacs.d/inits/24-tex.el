@@ -2,7 +2,12 @@
 ; latex-mode
 ;==================================================
 ;;; Code:
-(add-to-list 'auto-mode-alist '("\\.tex" . latex-mode))
+
+(use-package latex-mode
+  :config
+  (bind-keys :map latex-mode-map
+             ("C-c s" . skim-forward-search))
+  :mode (("\\.tex" . latex-mode)))
 (add-to-list 'auto-mode-alist '("\\.bib" . bibtex-mode))
 
 (setq tex-default-mode 'latex-mode)
@@ -22,10 +27,6 @@
     (message (concat cmd " " args))
     (process-kill-without-query
      (start-process-shell-command "displayline" nil cmd args))))
-
-(add-hook 'latex-mode-hook
-          '(lambda ()
-             (define-key latex-mode-map (kbd "C-c s") 'skim-forward-search)))
 
 (provide '24-tex)
 ;;; 24-tex.el ends here

@@ -1,4 +1,4 @@
 ;;; Code:
-(require 'web-mode)
-(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(use-package web-mode
+  :mode (("\\.erb$" . web-mode)
+         ("\\.html$" . web-mode)))

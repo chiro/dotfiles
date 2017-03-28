@@ -1,63 +1,37 @@
 (when load-file-name
   (setq user-emacs-directory (file-name-directory load-file-name)))
 
-(add-to-list 'load-path (locate-user-emacs-file "el-get/el-get"))
-(unless (require 'el-get nil 'noerror)
-  (with-current-buffer
-      (url-retrieve-synchronously
-       "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
-    (goto-char (point-max))
-    (eval-print-last-sexp)))
-
-(el-get-bundle auto-complete)
-(el-get-bundle anzu)
-(el-get-bundle flycheck)
-(el-get-bundle google-c-style)
-(el-get-bundle helm)
-(el-get-bundle helm-descbinds)
-(el-get-bundle helm-ghq)
-(el-get-bundle js2-mode)
-(el-get-bundle json-mode)
-(el-get-bundle popwin)
-(el-get-bundle tuareg)
-(el-get-bundle init-loader)
-(el-get-bundle solarized-theme)
-(el-get-bundle org)
-(el-get-bundle go-mode)
-(el-get-bundle markdown-mode)
-(el-get-bundle tss)
-(el-get-bundle web-mode)
-(el-get-bundle yaml-mode)
-
-;; Haskell
-(el-get-bundle haskell-mode)
-(el-get-bundle flycheck-haskell)
-
-;; Ruby
-(el-get-bundle ruby-block)
-(el-get-bundle rspec-mode)
-(el-get-bundle haml-mode)
-
-;; Scala
-(el-get-bundle sbt-mode)
-(el-get-bundle scala-mode2)
-
-;; Company mode
-(el-get-bundle company)
-(el-get-bundle company-ghc)
-(el-get-bundle company-go)
-(el-get-bundle company-c-headers)
-
-;; git
-(el-get-bundle git-commit-mode)
-(el-get-bundle git-rebase-mode)
-(el-get-bundle git-gutter)
-
-(el-get-bundle pretty-mode)
-(el-get-bundle projectile)
-(el-get-bundle howm)
-(el-get-bundle ddskk)
+(when (require 'package nil t)
+  (add-to-list 'package-archives '("stable-melpa" . "https://stable.melpa.org/packages/") t)
+  (package-initialize)
+  ;; Install use-package if not there
+  (unless (require 'use-package nil t)
+    (unless package-archive-contents (package-refresh-contents))
+    (package-install 'use-package)))
 
 ;; init-loader
-(require 'init-loader)
-(init-loader-load (concat user-emacs-directory "inits"))
+(use-package init-loader
+  :ensure t
+  :config (init-loader-load (concat user-emacs-directory "inits")))
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(anzu-deactive-region t)
+ '(anzu-mode-lighter "")
+ '(anzu-search-threshold 1000)
+ '(haskell-process-auto-import-loaded-modules t)
+ '(haskell-process-log t)
+ '(haskell-process-suggest-remove-import-lines t)
+ '(haskell-tags-on-save t)
+ '(package-selected-packages
+   (quote
+    (scala-mode haml-mode markdown-mode yaml-mode json-mode git-commit-mode projectile haskell-mode go-mode ddskk rust-mode anzu racer use-package company-go company org solarized-theme))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

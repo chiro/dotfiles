@@ -1,8 +1,10 @@
 ;==================================================
 ; c-mode, c++-mode
 ;==================================================
-(add-hook 'c-mode-common-hook 'google-set-c-style)
-(add-hook 'c-mode-common-hook 'google-make-newline-indent)
+(use-package google-c-style
+  :init
+  (add-hook 'c-mode-common-hook 'google-set-c-style)
+  (add-hook 'c-mode-common-hook 'google-make-newline-indent))
 
 (setq c-hungry-delete-key t)
 

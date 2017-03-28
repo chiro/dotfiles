@@ -5,9 +5,11 @@
 (setq initial-scratch-message "")
 
 ;; server start for emacs-client
-(require 'server)
-(unless (server-running-p)
-  (server-start))
+(use-package server
+  :defer 1
+  :config
+  (unless (server-running-p)
+    (server-start)))
 
 ;;
 (setq require-final-newline t)
