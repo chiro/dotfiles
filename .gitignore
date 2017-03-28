@@ -1,13 +1,15 @@
 ## Emacs
 *~
-/elpa/
 tramp
 auto-save-list
 .emacs.d/elisp
+.emacs.d/elpa/
 .emacs.d/abbrev_defs
 .emacs.d/ac-comphist.dat
 .emacs.d/.cask
 .emacs.d/el-get
+.emacs.d/*.eld
+.emacs.d/recentf
 /eshell/history
 /eshell/lastdir
 
