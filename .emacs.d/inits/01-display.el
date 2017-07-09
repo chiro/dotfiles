@@ -21,11 +21,9 @@
 (setq transient-mark-mode t)
 
 ;; 左に行番号を表示
-(global-linum-mode t)
-(set-face-attribute 'linum nil
-                    :foreground "#800"
-                    :height 0.9)
-(setq linum-format "%4d")
+(setq-default display-line-numbers t)
+(set-face-foreground 'line-number "#800")
+(set-face-foreground 'line-number-current-line "#080")
 
 ;; 行末の空白を強調表示
 (setq-default show-trailing-whitespace t)
