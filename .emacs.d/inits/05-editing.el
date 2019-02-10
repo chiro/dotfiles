@@ -4,6 +4,9 @@
 ;; Don't make ~file
 (setq make-backup-files nil)
 
+;; Don't make .#* files
+(setq auto-save-default nil)
+
 (setq-default indent-tabs-mode nil ; no use tab mode
               tab-width        4   ; size of tab is 4
               )
