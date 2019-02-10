@@ -31,6 +31,11 @@
 
 (setq-default line-spacing 0)
 
+;; No tool bar
+(tool-bar-mode 0)
+;; No menu bar
+(menu-bar-mode 0)
+
 (when (window-system)
   (setq frame-title-format
         (concat "%b - emacs@" system-name))
