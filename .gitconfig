@@ -3,9 +3,9 @@
     email = i@chir.jp
 
 [core]
-    autocrlf = false
-    safecrlf = true
+    autocrlf = input
     excludesfile = ~/.gitignore
+    editor = vim
 
 [color]
     diff = auto
@@ -25,8 +25,8 @@
     unstage = reset HEAD --
     rb = rebase
 
-[push]
-    default = simple
+[pull]
+    ff = only
 
 [ghq]
     root = ~/src
