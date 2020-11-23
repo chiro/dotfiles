@@ -1,8 +1,10 @@
 ;;==================================================
 ;; Proof General
 ;;==================================================
-;; I don't need any configuration about ProofGeneral.
-;; el-get loads ProofGeneral.
+
+(use-package proof-general
+  :ensure t)
+
 
 
 ;; Customization of PG for ssreflect syntax
@@ -51,17 +53,3 @@
 (defcustom coq-variable-highlight-enable nil
   "Activates partial bound variable highlighting"
 )
-
-(with-eval-after-load 'coq
-  (print "In eval-after-load coq")
-  (defun coq-mode-config-hook ()
-    "coq-mode-config-hook"
-    (auto-complete-mode)
-    (turn-on-pretty-mode)
-    (proof-electric-terminator-enable))
-  (add-hook 'coq-mode-hook 'coq-mode-config-hook)
-
-  (defun coq-goals-mode-config-hook ()
-    "coq-goals-mode-config-hook"
-    (turn-on-pretty-mode))
-  (add-hook 'coq-goals-mode-hook 'coq-goals-mode-config-hook))
