@@ -3,8 +3,6 @@
 
 (when (require 'package nil t)
   (add-to-list 'package-archives
-               '("stable-melpa" . "https://stable.melpa.org/packages/") t)
-  (add-to-list 'package-archives
                '("melpa" . "https://melpa.org/packages/") t)
   (package-initialize)
   ;; Install use-package if not there
