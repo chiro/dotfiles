@@ -18,15 +18,17 @@ shell -$SHELL
 defflow off
 
 defbce on
-term "screen-256color"
+term "xterm-256color"
 termcapinfo xterm* 'Co#256:pa#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm:'
 
 multiuser on
 acladd $USER
 
 bind l windowlist
+windowlist title  '%{u .g}Num Flags Title%=[0-9] select the number [movement] j,C-n:Down k,C-p:Up (C-)f:PageDown (C-)b:PageUp'
+windowlist string '%{.g}%3n %{.y}%f%09=%{dg} %t %='
 
-caption always "%{=r dd}%-Lw%40L>%?%F%{=b dW}%:[%?%n%f %t%?%F%{-}%:]%?%+Lw"
-hardstatus alwayslastline "%H%{-}%=[%l] %y/%m/%d %02c:%s"
+caption always '%?%F%{= gW}%:%{= Kk}%?%2n%f%07=%t%='
+hardstatus alwayslastline '%{= G}[ %{G}%H %{g}][%= %{= w}%?%-Lw%?%{= R}%n*%f %t%?%{= R}(%u)%?%{= w}%+Lw%?%= %{= g}][ %{y}Load: %l %{g}][ %{B}%Y-%m-%d %{W}%c:%s %{g}]'
 
 sorendition "+rb .G"
