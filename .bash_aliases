@@ -30,3 +30,12 @@ function peco-git-add() {
     fi
 }
 alias gadd=peco-git-add
+
+function peco-git-checkout () {
+    local selected_branch=$(git branch --list --no-color | colrm 1 2 | peco)
+    if [ -n "$selected_branch" ]; then
+        selected=$(tr '\n' ' ' <<< "$selected_branch")
+        git checkout $selected
+    fi
+}
+alias gco=peco-git-checkout

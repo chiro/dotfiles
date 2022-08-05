@@ -24,6 +24,12 @@
     sh = show
     unstage = reset HEAD --
     rb = rebase
+    # Checkout a remove branch
+    cr = !git branch -r | peco --prompt 'BRANCH>' | cut -d'/' -f2- | xargs git checkout
+    # Show all defined aliases
+    alias = !git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort
+    # Delete a branch selected by peco
+    bd = !git branch | grep -Ev '\\*|master|main' | peco | xargs git branch -D
 
 [pull]
     ff = only
