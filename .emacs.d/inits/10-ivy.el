@@ -1,4 +1,5 @@
 (use-package counsel
+  :ensure t
   :defer 2
   :config
   (ivy-mode 1)
@@ -12,10 +13,12 @@
          ("C-c g" . counsel-git)))
 
 (use-package swiper
+  :ensure t
   :config
   (defvar swiper-include-line-number-in-search t)
   :bind (("C-s" . swiper)))
 
 (use-package ivy-rich
+  :ensure t
   :config
   (ivy-rich-mode 1))

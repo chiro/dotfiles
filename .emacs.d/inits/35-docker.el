@@ -1,3 +1,5 @@
-(use-package docker-compose-mode)
+(use-package docker-compose-mode
+  :ensure t)
 
-(use-package dockerfile-mode)
+(use-package dockerfile-mode
+  :ensure t)
