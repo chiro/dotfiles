@@ -15,6 +15,7 @@
 [alias]
     br = branch
     b = branch -v
+    setupstream = "!f(){ git br --set-upstream-to=${1} ${2}; };f"
     ci = commit
     co = checkout
     df = diff
