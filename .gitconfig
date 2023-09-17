@@ -12,6 +12,9 @@
     status = auto
     branch = auto
 
+[commit]
+    cleanup = scissors
+
 [alias]
     br = branch
     b = branch -v
