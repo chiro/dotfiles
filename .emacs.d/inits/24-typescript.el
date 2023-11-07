@@ -3,7 +3,7 @@
 ;==================================================
 ;;; Code:
 
-(use-package typescript
+(use-package typescript-mode
   :mode (("\\.ts" . typescript-mode)))
 
 (use-package tss

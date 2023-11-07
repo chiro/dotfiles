@@ -11,6 +11,7 @@
   (setq org-default-notes-file "notes.org"))
 
 (use-package org-capture
+  :ensure nil
   :config
   (setq org-capture-templates
         '(("t" "Todo" entry (file+headline "~/org/gtd.org" "Tasks")

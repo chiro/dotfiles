@@ -1,7 +1,7 @@
 ;;==================================================
 ;; ocaml mode
 ;;==================================================
-(use-package tuareg-mode
+(use-package tuareg
   :mode (("\\.ml[iylp]?" . tuareg-mode))
   :commands (tuareg-mode))
 

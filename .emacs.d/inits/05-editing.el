@@ -27,6 +27,7 @@
 
 ;; uniquify
 (use-package uniquify
+  :ensure nil ;; It's needed because uniquify is the built-in module.
   :defer 1
   :config
   (setq uniquify-buffer-name-style 'post-forward-angle-brackets))

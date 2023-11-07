@@ -1,14 +1,20 @@
 (when load-file-name
   (setq user-emacs-directory (file-name-directory load-file-name)))
 
-(when (require 'package nil t)
-  (add-to-list 'package-archives
-               '("melpa" . "https://melpa.org/packages/") t)
-  (package-initialize)
-  ;; Install use-package if not there
-  (unless (require 'use-package nil t)
-    (unless package-archive-contents (package-refresh-contents))
-    (package-install 'use-package)))
+;; Make 'load' prefer the newest version of the file
+(setq load-prefer-newer t)
+
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/") t)
+
+;; Install use-package if not there
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+;; Always install the used packages
+(setq use-package-always-ensure t)
 
 ;; init-loader
 (use-package init-loader
