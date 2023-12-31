@@ -44,9 +44,9 @@
   (set-scroll-bar-mode nil)
 
   (set-face-attribute 'default nil
-                      :family "Ricty"
-                      :height 100)
-  (set-fontset-font nil 'japanese-jisx0208 (font-spec :family "Ricty"))
+                      :family "Hack"
+                      :height 80)
+  (set-fontset-font nil 'japanese-jisx0208 (font-spec :family "Hack"))
 
   ;; カーソル行をハイライト
   (defface hlline-face
