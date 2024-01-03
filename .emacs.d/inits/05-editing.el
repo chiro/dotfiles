@@ -23,8 +23,6 @@
 ;; auto reload the buffer.
 (global-auto-revert-mode t)
 
-(setq-default skk-kutouten-type 'en)
-
 ;; uniquify
 (use-package uniquify
   :ensure nil ;; It's needed because uniquify is the built-in module.
@@ -32,7 +30,13 @@
   :config
   (setq uniquify-buffer-name-style 'post-forward-angle-brackets))
 
-(setq-default skk-kutouten-type 'en)
+;; undo-tree
+(use-package undo-tree
+  :defer 1
+  :config
+  (global-undo-tree-mode)
+  (setq undo-tree-auto-save-history t)
+  (setq undo-tree-history-directory-alist `(("." .  ,(concat user-emacs-directory "/undo")))))
 
 ;==================================================
 ; スクリプトを保存するとき、自動的に chmod +x する
