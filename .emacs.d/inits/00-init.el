@@ -14,3 +14,6 @@
 
 ;;
 (setq require-final-newline t)
+
+;; Ask before exit
+(setq confirm-kill-emacs 'y-or-n-p)
