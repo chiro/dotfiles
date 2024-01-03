@@ -6,6 +6,7 @@
 
 ;; server start for emacs-client
 (use-package server
+  :ensure nil ;; It's needed because server is the built-in module.
   :defer 1
   :config
   (unless (server-running-p)
