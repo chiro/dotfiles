@@ -10,6 +10,7 @@ auto-save-list
 .emacs.d/el-get
 .emacs.d/*.eld
 .emacs.d/recentf
+.emacs.d/url
 /eshell/history
 /eshell/lastdir
 
