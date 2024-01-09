@@ -17,3 +17,7 @@
 
 ;; Ask before exit
 (setq confirm-kill-emacs 'y-or-n-p)
+
+(setq history-delete-duplicates t)
+
+(use-package diminish)
