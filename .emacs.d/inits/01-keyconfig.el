@@ -1,6 +1,3 @@
-;; UNDO
-(global-set-key (kbd "C-z") 'undo)
-
 ;; set C-h to BackSpace
 (global-set-key (kbd "C-h") 'backward-delete-char)
 
