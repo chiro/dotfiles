@@ -30,6 +30,20 @@ if [[ ! -f "${HOME}"/.asdf/shims/python3 ]]; then
     echo 'export PATH=${HOME}/.local/bin:${PATH}' >> "${HOME}"/.bashrc
 fi
 
+if [[ ! -f "${HOME}"/.asdf/shims/ghq ]]; then
+    echo "ghq not found. Installing..."
+    asdf plugin add ghq
+    asdf install ghq latest
+    asdf global ghq latest
+fi
+
+if [[ ! -f "${HOME}"/.asdf/shims/peco ]]; then
+    echo "peco not found. Installing..."
+    asdf plugin add peco
+    asdf install peco latest
+    asdf global peco latest
+fi
+
 # Create symlinks
 if [[ ! -d "${HOME}"/.emacs.d ]]; then
     ln -sf $(pwd)/.emacs.d "${HOME}"/.emacs.d
