@@ -53,3 +53,5 @@ ln -sf $(pwd)/.gemrc "${HOME}"/.gemrc
 ln -sf $(pwd)/.gitconfig "${HOME}"/.gitconfig
 ln -sf $(pwd)/.gitignore "${HOME}"/.gitignore
 ln -sf $(pwd)/.screenrc "${HOME}"/.screenrc
+mkdir -p "${HOME}"/.config/tmux
+ln -sf $(pwd)/.tmux.conf "${HOME}"/.config/tmux/tmux.conf
