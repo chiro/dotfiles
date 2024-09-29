@@ -38,6 +38,18 @@
   (setq undo-tree-auto-save-history t)
   (setq undo-tree-history-directory-alist `(("." .  ,(concat user-emacs-directory "/undo")))))
 
+;; pixel-scroll
+(use-package pixel-scroll
+  :if (>= (string-to-number emacs-version) 29)
+  :ensure nil
+  :bind
+  ([remap scroll-up-command] . pixel-scroll-interpolate-up)
+  ([remap scroll-down-command] . pixel-scroll-interpolate-down)
+  :custom
+  (pixel-scroll-precision-interpolate-page t)
+  :init
+  (pixel-scroll-precision-mode 1))
+
 ;==================================================
 ; スクリプトを保存するとき、自動的に chmod +x する
 ;==================================================
