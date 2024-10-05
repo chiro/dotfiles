@@ -44,6 +44,14 @@ if [[ ! -f "${HOME}"/.asdf/shims/peco ]]; then
     asdf global peco latest
 fi
 
+if [[ ! -f "${HOME}"/.asdf/shims/uv ]]; then
+    echo "uv not found. Installing..."
+    asdf plugin add uv
+    asdf install uv latest
+    asdf global uv latest
+    echo 'eval "$(uv generate-shell-completion bash)"' >> ~/.bashrc
+fi
+
 # Create symlinks
 if [[ ! -d "${HOME}"/.emacs.d ]]; then
     ln -sf $(pwd)/.emacs.d "${HOME}"/.emacs.d
