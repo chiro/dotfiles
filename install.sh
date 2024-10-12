@@ -64,3 +64,5 @@ ln -sf $(pwd)/.screenrc "${HOME}"/.screenrc
 mkdir -p "${HOME}"/.config/tmux
 ln -sf $(pwd)/.tmux.conf "${HOME}"/.config/tmux/tmux.conf
 ln -sf $(pwd)/.Xresources "${HOME}"/.Xresources
+mkdir -p "${HOME}"/.config/polybar
+ln -sf $(pwd)/polybar.config.ini "${HOME}"/.config/polybar/config.ini
