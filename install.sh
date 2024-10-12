@@ -57,6 +57,7 @@ if [[ ! -d "${HOME}"/.emacs.d ]]; then
     ln -sf $(pwd)/.emacs.d "${HOME}"/.emacs.d
 fi
 ln -sf $(pwd)/.bash_aliases "${HOME}"/.bash_aliases
+ln -sf $(pwd)/.bashrc "${HOME}"/.bashrc
 ln -sf $(pwd)/.gemrc "${HOME}"/.gemrc
 ln -sf $(pwd)/.gitconfig "${HOME}"/.gitconfig
 ln -sf $(pwd)/.gitignore "${HOME}"/.gitignore

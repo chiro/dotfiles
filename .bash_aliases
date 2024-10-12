@@ -1,3 +1,5 @@
+alias ls='ls --color=auto'
+
 alias g='git'
 alias b='git b'
 
