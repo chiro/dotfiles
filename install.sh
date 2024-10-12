@@ -69,3 +69,4 @@ ln -sf $(pwd)/polybar.config.ini "${HOME}"/.config/polybar/config.ini
 ln -sf $(pwd)/.xprofile "${HOME}"/.xprofile
 mkdir -p "${HOME}"/.xmonad
 ln -sf $(pwd)/.xmonad/xmonad.hs "${HOME}"/.xmonad/xmonad.hs
+ln -sf $(pwd)/.Xmodmap "${HOME}"/.Xmodmap
