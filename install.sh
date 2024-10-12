@@ -56,17 +56,25 @@ fi
 if [[ ! -d "${HOME}"/.emacs.d ]]; then
     ln -sf $(pwd)/.emacs.d "${HOME}"/.emacs.d
 fi
+
+# bash
 ln -sf $(pwd)/.bash_aliases "${HOME}"/.bash_aliases
 ln -sf $(pwd)/.bashrc "${HOME}"/.bashrc
-ln -sf $(pwd)/.gemrc "${HOME}"/.gemrc
+
+# git
 ln -sf $(pwd)/.gitconfig "${HOME}"/.gitconfig
 ln -sf $(pwd)/.gitignore "${HOME}"/.gitignore
-ln -sf $(pwd)/.screenrc "${HOME}"/.screenrc
+
+ln -sf $(pwd)/.gemrc "${HOME}"/.gemrc
+
+# tmux
 mkdir -p "${HOME}"/.config/tmux
 ln -sf $(pwd)/.tmux.conf "${HOME}"/.config/tmux/tmux.conf
+
+# X/XMonad
 ln -sf $(pwd)/.Xresources "${HOME}"/.Xresources
-mkdir -p "${HOME}"/.config/polybar
-ln -sf $(pwd)/polybar.config.ini "${HOME}"/.config/polybar/config.ini
 ln -sf $(pwd)/.xprofile "${HOME}"/.xprofile
 mkdir -p "${HOME}"/.xmonad
 ln -sf $(pwd)/.xmonad/xmonad.hs "${HOME}"/.xmonad/xmonad.hs
+mkdir -p "${HOME}"/.config/polybar
+ln -sf $(pwd)/polybar.config.ini "${HOME}"/.config/polybar/config.ini
