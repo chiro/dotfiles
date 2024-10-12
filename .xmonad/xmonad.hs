@@ -56,7 +56,6 @@ myStartupHook = do
   spawnOnce "nitrogen --restore"
   spawnOnce "fcitx5"
   spawnOnce "xscreensaver --no-splash"
-  spawn "xmodmap ~/.Xmodmap"
 
 myWorkspaces = ["term", "emacs", "Web", "4", "5", "6", "7", "8", "9"]
 
