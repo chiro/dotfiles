@@ -19,17 +19,6 @@ if [[ ! -f "${HOME}"/.asdf/shims/ruby ]]; then
     asdf install ruby latest
 fi
 
-if [[ ! -f "${HOME}"/.asdf/shims/python3 ]]; then
-    echo "python not found. Installing..."
-    sudo apt install build-essential libssl-dev zlib1g-dev \
-         libbz2-dev libreadline-dev libsqlite3-dev curl \
-         libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
-    asdf plugin add python
-    asdf install python latest
-    asdf global python latest
-    echo 'export PATH=${HOME}/.local/bin:${PATH}' >> "${HOME}"/.bashrc
-fi
-
 if [[ ! -f "${HOME}"/.asdf/shims/ghq ]]; then
     echo "ghq not found. Installing..."
     asdf plugin add ghq
