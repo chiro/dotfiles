@@ -67,3 +67,10 @@ mkdir -p "${HOME}"/.xmonad
 ln -sf $(pwd)/.xmonad/xmonad.hs "${HOME}"/.xmonad/xmonad.hs
 mkdir -p "${HOME}"/.config/polybar
 ln -sf $(pwd)/polybar.config.ini "${HOME}"/.config/polybar/config.ini
+
+# Alacritty
+mkdir -p "${HOME}"/.config/alacritty
+ln -sf $(pwd)/alacritty.toml "${HOME}"/.config/alacritty/alacritty.toml
+if [[ ! -d "${HOME}"/.config/alacritty/themes ]]; then
+    git clone https://github.com/alacritty/alacritty-theme "${HOME}"/.config/alacritty/themes
+fi

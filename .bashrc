@@ -7,7 +7,7 @@
 
 # set a colored PS1 if TERM supports it
 case "$TERM" in
-    xterm-color|*-256color) PS1='\[\e[91;1;2m\]\u@\h\[\e[0m\]:\[\e[96m\]\w\[\e[0m\]\$ ';;
+    alacritty|xterm-color|*-256color) PS1='\[\e[91;1;2m\]\u@\h\[\e[0m\]:\[\e[96m\]\w\[\e[0m\]\$ ';;
     *) PS1='[\u@\h \W]\$ ';;
 esac
 

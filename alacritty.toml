@@ -1,0 +1,10 @@
+import = [
+    "~/.config/alacritty/themes/themes/zenburn.toml"
+]
+
+[font]
+normal = { family = "RictyDiminished", style = "Regular" }
+size = 8
+
+[selection]
+save_to_clipboard = true

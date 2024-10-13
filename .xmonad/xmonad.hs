@@ -16,8 +16,8 @@ defaults = def {
   -- Super key for the mod
   modMask            = mod4Mask,
 
-  -- Use rxvt-unicode as a default terminal
-  terminal           = "urxvtc",
+  -- Use alacritty as a default terminal
+  terminal           = "alacritty",
 
   focusFollowsMouse  = False,
   clickJustFocuses   = False,
@@ -51,7 +51,6 @@ myLayoutHook = tiled ||| Mirror tiled ||| Full
 
 myStartupHook :: X ()
 myStartupHook = do
-  spawnOnce "urxvtd -q -f -o"
   spawnOnce "polybar"
   spawnOnce "nitrogen --restore"
   spawnOnce "fcitx5"
