@@ -28,6 +28,7 @@
     sw = switch
     unstage = reset HEAD --
     rb = rebase
+    rs = restore
     # Checkout a remove branch
     cr = !git branch -r | peco --prompt 'BRANCH>' | cut -d'/' -f2- | xargs git checkout
     # Show all defined aliases
