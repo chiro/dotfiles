@@ -1,6 +1,7 @@
 (use-package counsel
   :config
   (counsel-mode 1)
+  :diminish counsel-mode
   :bind (("M-x" . counsel-M-x)
          ("C-x C-f" . counsel-find-file)
          ("C-c g" . counsel-git)))

@@ -12,12 +12,9 @@
   (unless (server-running-p)
     (server-start)))
 
-;;
-(setq require-final-newline t)
-
 ;; Ask before exit
-(setq confirm-kill-emacs 'y-or-n-p)
+(setopt confirm-kill-emacs 'y-or-n-p)
 
-(setq history-delete-duplicates t)
+(setopt history-delete-duplicates t)
 
 (use-package diminish)

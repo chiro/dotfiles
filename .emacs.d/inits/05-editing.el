@@ -2,7 +2,7 @@
 (delete-selection-mode t)
 
 ;; Don't make ~file
-(setq make-backup-files nil)
+(setopt make-backup-files nil)
 
 ;; Don't make .#* files
 (setq auto-save-default nil)
@@ -11,9 +11,6 @@
               tab-width        4   ; size of tab is 4
               )
 
-; C-c c で compile コマンドを呼び出す
-(define-key mode-specific-map "c" 'compile)
-
 ; 最近使ったファイル
 (recentf-mode)
 
@@ -21,6 +18,9 @@
 (setq completion-ignore-case t)
 
 ;; auto reload the buffer.
+(setopt auto-revert-avoid-polling t)
+(setopt auto-revert-interval 5)
+(setopt auto-revert-check-vc-info t)
 (global-auto-revert-mode t)
 
 ;; uniquify
@@ -33,6 +33,7 @@
 ;; undo-tree
 (use-package undo-tree
   :defer 1
+  :diminish undo-tree-mode
   :config
   (global-undo-tree-mode)
   (setq undo-tree-auto-save-history t)
@@ -49,6 +50,11 @@
   (pixel-scroll-precision-interpolate-page t)
   :init
   (pixel-scroll-precision-mode 1))
+
+;; which-key: show a popup of available keybindings
+(use-package which-key
+  :config
+  (which-key-mode))
 
 ;==================================================
 ; スクリプトを保存するとき、自動的に chmod +x する
