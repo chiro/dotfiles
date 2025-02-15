@@ -18,3 +18,6 @@
 (setopt history-delete-duplicates t)
 
 (use-package diminish)
+
+;; See https://github.com/emacs-lsp/lsp-mode/issues/3516
+(setq backup-by-copying t)
