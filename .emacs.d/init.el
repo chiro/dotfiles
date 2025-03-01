@@ -21,6 +21,11 @@
   :ensure t
   :config (init-loader-load (concat user-emacs-directory "inits")))
 
+;; theme
+(use-package zenburn-theme
+  :ensure t
+  :config (load-theme 'zenburn t))
+
 ;; Put M-x customize stuff in a separate file
 (setopt custom-file (concat user-emacs-directory "custom-file.el"))
 (load custom-file 'noerror)
