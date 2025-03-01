@@ -10,3 +10,6 @@
 (defun my/haskell-mode-hook ()
   (turn-on-haskell-doc-mode)
   (turn-on-haskell-indentation))
+
+(use-package consult-hoogle
+  :ensure t)
