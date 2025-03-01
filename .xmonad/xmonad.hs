@@ -8,7 +8,7 @@ import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
 import XMonad.Layout
 import XMonad.Util.SpawnOnce (spawnOnce)
-import XMonad.Util.EZConfig (additionalKeysP)
+import XMonad.Util.EZConfig (additionalKeys, additionalKeysP)
 
 main = xmonad $ docks $ disableEwmhManageDesktopViewport . ewmhFullscreen . ewmh $ defaults
 
@@ -34,6 +34,10 @@ defaults = def {
 }
   `additionalKeysP`
   [ ("M-l", spawn "xscreensaver-command --lock") ]
+  `additionalKeys`
+  [ ((0, 0x1008FF11), spawn "amixer -D pulse sset Master 2%-"),
+    ((0, 0x1008FF12), spawn "amixer -D pulse set Master toggle"),
+    ((0, 0x1008FF13), spawn "amixer -D pulse sset Master 2%+") ]
 
 myLayoutHook = tiled ||| Mirror tiled ||| Full
   where
