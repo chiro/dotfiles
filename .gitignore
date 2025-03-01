@@ -69,3 +69,6 @@ cabal.sandbox.config
 
 # direnv
 .envrc
+
+# qemu image
+*.qcow2
