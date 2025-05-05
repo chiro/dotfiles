@@ -1,8 +1,8 @@
 ;; スタートアップ画面を非表示
-(setq inhibit-startup-screen t)
+(setopt inhibit-startup-screen t)
 
 ;; *scratch* のメッセージを空に
-(setq initial-scratch-message "")
+(setopt initial-scratch-message "")
 
 ;; server start for emacs-client
 (use-package server
@@ -20,4 +20,4 @@
 (use-package diminish)
 
 ;; See https://github.com/emacs-lsp/lsp-mode/issues/3516
-(setq backup-by-copying t)
+(setopt backup-by-copying t)

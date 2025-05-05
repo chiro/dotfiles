@@ -29,9 +29,6 @@
 (menu-bar-mode 0)
 
 (when (window-system)
-  (setq frame-title-format
-        (concat "%b - emacs@" system-name))
-
   ;; Hide scroll bar
   (set-scroll-bar-mode nil)
 

@@ -39,7 +39,7 @@
       :stream t)
 
     ;; Set default model using the variable
-    (setq gptel-model gemini-model)))
+    (setopt gptel-model gemini-model)))
 
 (use-package gptel-aibo
   :ensure t

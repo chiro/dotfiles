@@ -5,7 +5,7 @@
 (setopt make-backup-files nil)
 
 ;; Don't make .#* files
-(setq auto-save-default nil)
+(setopt auto-save-default nil)
 
 (setq-default indent-tabs-mode nil ; no use tab mode
               tab-width        4   ; size of tab is 4
@@ -13,9 +13,6 @@
 
 ; 最近使ったファイル
 (recentf-mode)
-
-;; Ignore case when do completion
-(setq completion-ignore-case t)
 
 ;; auto reload the buffer.
 (setopt auto-revert-avoid-polling t)
@@ -28,7 +25,7 @@
   :ensure nil ;; It's needed because uniquify is the built-in module.
   :defer 1
   :config
-  (setq uniquify-buffer-name-style 'post-forward-angle-brackets))
+  (setopt uniquify-buffer-name-style 'post-forward-angle-brackets))
 
 ;; undo-tree
 (use-package undo-tree
@@ -36,8 +33,8 @@
   :diminish undo-tree-mode
   :config
   (global-undo-tree-mode)
-  (setq undo-tree-auto-save-history t)
-  (setq undo-tree-history-directory-alist `(("." .  ,(concat user-emacs-directory "/undo")))))
+  (setopt undo-tree-auto-save-history t)
+  (setopt undo-tree-history-directory-alist `(("." .  ,(concat user-emacs-directory "/undo")))))
 
 ;; pixel-scroll
 (use-package pixel-scroll

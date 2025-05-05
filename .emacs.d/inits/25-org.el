@@ -4,19 +4,17 @@
 (use-package org
   :ensure t
   :mode (("\\.org$" . org-mode))
-  :config
-  (setq org-startup-truncated nil)
-  (setq org-return-follows-link t)
-  (setq org-directory "~/org/")
-  (setq org-default-notes-file "notes.org"))
+  :custom (org-startup-truncated nil)
+  :custom (org-return-follows-link t)
+  :custom (org-directory "~/org/")
+  :custom (org-default-notes-file "notes.org"))
 
 (use-package org-capture
   :ensure nil
-  :config
-  (setq org-capture-templates
+  :custom
+  (org-capture-templates
         '(("t" "Todo" entry (file+headline "~/org/gtd.org" "Tasks")
            "* TODO %?\n  %i\n  %a")
           ("n" "note" entry (file+headline "~/org/notes.org" "Notes")
            "* %?\n %i\n %a\n %T")))
-  :init
-  (bind-key "C-c c" 'org-capture))
+  :bind ("C-c c" . 'org-capture))
