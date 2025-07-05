@@ -33,7 +33,7 @@ defaults = def {
   workspaces         = myWorkspaces
 }
   `additionalKeysP`
-  [ ("M-l", spawn "xscreensaver-command --lock") ]
+  [ ("M-S-l", spawn "xscreensaver-command --lock") ]
   `additionalKeys`
   [ ((0, 0x1008FF11), spawn "amixer -D pulse sset Master 2%-"),
     ((0, 0x1008FF12), spawn "amixer -D pulse set Master toggle"),
