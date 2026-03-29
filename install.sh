@@ -70,6 +70,7 @@ ln -sf $(pwd)/polybar.config.ini "${HOME}"/.config/polybar/config.ini
 
 # Claude Code
 mkdir -p "${HOME}"/.claude/agents
+ln -sf $(pwd)/.claude/CLAUDE.md "${HOME}"/.claude/CLAUDE.md
 ln -sf $(pwd)/.claude/settings.json "${HOME}"/.claude/settings.json
 ln -sf $(pwd)/.claude/settings.local.json "${HOME}"/.claude/settings.local.json
 ln -sf $(pwd)/.claude/agents/code-searcher.md "${HOME}"/.claude/agents/code-searcher.md
