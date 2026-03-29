@@ -21,16 +21,12 @@
   :defer t
   :config
   ;; Centralize model name
-  (let ((claude-model "claude-3-7-sonnet-20250219")
-        (gemini-model "gemini-2.5-pro-exp-03-25"))
+  (let ((claude-model "claude-sonnet-4-5")
+        (gemini-model "gemini-3-pro-preview"))
     (gptel-make-anthropic "Claude-thinking"
       :key chiro-anthropic-api-key ; gptel handles x-api-key with this
       :stream t
       :models (list claude-model)
-      :header (lambda () ; Use :header only for ADDITIONAL headers
-                '(("anthropic-version" . "2023-06-01")
-                  ;; Combine beta headers
-                  ("anthropic-beta" . "pdfs-2024-09-25,output-128k-2025-02-19,prompt-caching-2024-07-31")))
       :request-params '(:thinking (:type "enabled" :budget_tokens 2048)
                                   :max_tokens 4096))
 
