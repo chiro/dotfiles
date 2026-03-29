@@ -68,6 +68,12 @@ ln -sf $(pwd)/.xmonad/xmonad.hs "${HOME}"/.xmonad/xmonad.hs
 mkdir -p "${HOME}"/.config/polybar
 ln -sf $(pwd)/polybar.config.ini "${HOME}"/.config/polybar/config.ini
 
+# Claude Code
+mkdir -p "${HOME}"/.claude/agents
+ln -sf $(pwd)/.claude/settings.json "${HOME}"/.claude/settings.json
+ln -sf $(pwd)/.claude/settings.local.json "${HOME}"/.claude/settings.local.json
+ln -sf $(pwd)/.claude/agents/code-searcher.md "${HOME}"/.claude/agents/code-searcher.md
+
 # Alacritty
 mkdir -p "${HOME}"/.config/alacritty
 ln -sf $(pwd)/alacritty.toml "${HOME}"/.config/alacritty/alacritty.toml
