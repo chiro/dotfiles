@@ -41,6 +41,13 @@ if [[ ! -f "${HOME}"/.asdf/shims/uv ]]; then
     echo 'eval "$(uv generate-shell-completion bash)"' >> ~/.bashrc
 fi
 
+if [[ ! -f "${HOME}"/.asdf/shims/node ]]; then
+    echo "nodejs not found. Installing..."
+    asdf plugin add nodejs
+    asdf install nodejs latest
+    asdf global nodejs latest
+fi
+
 # Create symlinks
 if [[ ! -d "${HOME}"/.emacs.d ]]; then
     ln -sf $(pwd)/.emacs.d "${HOME}"/.emacs.d
