@@ -72,3 +72,7 @@ cabal.sandbox.config
 
 # qemu image
 *.qcow2
+
+# claude code
+CLAUDE.md
+.claude/
