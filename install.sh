@@ -7,8 +7,6 @@ DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
 if [[ ! -d "${HOME}"/.asdf ]]; then
     echo "asdf not found. Installing..."
     git clone https://github.com/asdf-vm/asdf.git "${HOME}"/.asdf --branch v0.13.1
-    echo '. "$HOME/.asdf/asdf.sh"' >> "${HOME}"/.bashrc
-    echo '. "$HOME/.asdf/completions/asdf.bash"' >> "${HOME}"/.bashrc
     echo "asdf is installed."
 fi
 
@@ -40,7 +38,6 @@ if [[ ! -f "${HOME}"/.asdf/shims/uv ]]; then
     asdf plugin add uv
     asdf install uv latest
     asdf global uv latest
-    echo 'eval "$(uv generate-shell-completion bash)"' >> ~/.bashrc
 fi
 
 if [[ ! -f "${HOME}"/.asdf/shims/node ]]; then
