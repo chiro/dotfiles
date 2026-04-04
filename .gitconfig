@@ -42,4 +42,4 @@
 [ghq]
     root = ~/src
 [init]
-	defaultBranch = main
+    defaultBranch = main
