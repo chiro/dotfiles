@@ -22,7 +22,15 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-. "$HOME/.cargo/env"
-. "$HOME/.asdf/asdf.sh"
-. "$HOME/.asdf/completions/asdf.bash"
-eval "$(uv generate-shell-completion bash)"
+[[ -f "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"
+[[ -f "$HOME/.asdf/asdf.sh" ]] && . "$HOME/.asdf/asdf.sh"
+[[ -f "$HOME/.asdf/completions/asdf.bash" ]] && . "$HOME/.asdf/completions/asdf.bash"
+command -v uv &>/dev/null && eval "$(uv generate-shell-completion bash)"
+
+[[ -f /etc/profile.d/google-cloud-cli.sh ]] && source /etc/profile.d/google-cloud-cli.sh
+
+# AWS
+export AWS_REGION=ap-northeast-1
+
+# uv
+export PATH="/home/chir/.local/bin:$PATH"
