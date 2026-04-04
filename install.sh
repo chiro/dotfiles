@@ -2,6 +2,8 @@
 
 set -eu
 
+DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
+
 if [[ ! -d "${HOME}"/.asdf ]]; then
     echo "asdf not found. Installing..."
     git clone https://github.com/asdf-vm/asdf.git "${HOME}"/.asdf --branch v0.13.1
@@ -50,40 +52,40 @@ fi
 
 # Create symlinks
 if [[ ! -d "${HOME}"/.emacs.d ]]; then
-    ln -sf $(pwd)/.emacs.d "${HOME}"/.emacs.d
+    ln -sf "${DOTFILES_DIR}"/.emacs.d "${HOME}"/.emacs.d
 fi
 
 # bash
-ln -sf $(pwd)/.bash_aliases "${HOME}"/.bash_aliases
-ln -sf $(pwd)/.bashrc "${HOME}"/.bashrc
+ln -sf "${DOTFILES_DIR}"/.bash_aliases "${HOME}"/.bash_aliases
+ln -sf "${DOTFILES_DIR}"/.bashrc "${HOME}"/.bashrc
 
 # git
-ln -sf $(pwd)/.gitconfig "${HOME}"/.gitconfig
-ln -sf $(pwd)/.gitignore "${HOME}"/.gitignore
+ln -sf "${DOTFILES_DIR}"/.gitconfig "${HOME}"/.gitconfig
+ln -sf "${DOTFILES_DIR}"/.gitignore "${HOME}"/.gitignore
 
-ln -sf $(pwd)/.gemrc "${HOME}"/.gemrc
+ln -sf "${DOTFILES_DIR}"/.gemrc "${HOME}"/.gemrc
 
 # tmux
 mkdir -p "${HOME}"/.config/tmux
-ln -sf $(pwd)/.tmux.conf "${HOME}"/.config/tmux/tmux.conf
+ln -sf "${DOTFILES_DIR}"/.tmux.conf "${HOME}"/.config/tmux/tmux.conf
 
 # X/XMonad
-ln -sf $(pwd)/.xprofile "${HOME}"/.xprofile
+ln -sf "${DOTFILES_DIR}"/.xprofile "${HOME}"/.xprofile
 mkdir -p "${HOME}"/.xmonad
-ln -sf $(pwd)/.xmonad/xmonad.hs "${HOME}"/.xmonad/xmonad.hs
+ln -sf "${DOTFILES_DIR}"/.xmonad/xmonad.hs "${HOME}"/.xmonad/xmonad.hs
 mkdir -p "${HOME}"/.config/polybar
-ln -sf $(pwd)/polybar.config.ini "${HOME}"/.config/polybar/config.ini
+ln -sf "${DOTFILES_DIR}"/polybar.config.ini "${HOME}"/.config/polybar/config.ini
 
 # Claude Code
 mkdir -p "${HOME}"/.claude/agents
-ln -sf $(pwd)/.claude/CLAUDE.md "${HOME}"/.claude/CLAUDE.md
-ln -sf $(pwd)/.claude/settings.json "${HOME}"/.claude/settings.json
-ln -sf $(pwd)/.claude/settings.local.json "${HOME}"/.claude/settings.local.json
-ln -sf $(pwd)/.claude/agents/code-searcher.md "${HOME}"/.claude/agents/code-searcher.md
+ln -sf "${DOTFILES_DIR}"/.claude/CLAUDE.md "${HOME}"/.claude/CLAUDE.md
+ln -sf "${DOTFILES_DIR}"/.claude/settings.json "${HOME}"/.claude/settings.json
+ln -sf "${DOTFILES_DIR}"/.claude/settings.local.json "${HOME}"/.claude/settings.local.json
+ln -sf "${DOTFILES_DIR}"/.claude/agents/code-searcher.md "${HOME}"/.claude/agents/code-searcher.md
 
 # Alacritty
 mkdir -p "${HOME}"/.config/alacritty
-ln -sf $(pwd)/alacritty.toml "${HOME}"/.config/alacritty/alacritty.toml
+ln -sf "${DOTFILES_DIR}"/alacritty.toml "${HOME}"/.config/alacritty/alacritty.toml
 if [[ ! -d "${HOME}"/.config/alacritty/themes ]]; then
     git clone https://github.com/alacritty/alacritty-theme "${HOME}"/.config/alacritty/themes
 fi
