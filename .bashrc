@@ -33,4 +33,4 @@ command -v uv &>/dev/null && eval "$(uv generate-shell-completion bash)"
 export AWS_REGION=ap-northeast-1
 
 # uv
-export PATH="/home/chir/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
