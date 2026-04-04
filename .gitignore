@@ -2,6 +2,7 @@
 *~
 tramp
 auto-save-list
+.emacs.d/custom-file.el
 .emacs.d/.lsp-session-v1
 .emacs.d/elisp
 .emacs.d/eln-cache
