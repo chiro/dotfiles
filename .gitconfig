@@ -29,7 +29,7 @@
     unstage = reset HEAD --
     rb = rebase
     rs = restore
-    # Checkout a remove branch
+    # Checkout a remote branch
     cr = !git branch -r | peco --prompt 'BRANCH>' | cut -d'/' -f2- | xargs git checkout
     # Show all defined aliases
     alias = !git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort
