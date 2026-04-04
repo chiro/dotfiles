@@ -25,7 +25,7 @@ defaults = def {
   -- border settings
   borderWidth        = 1,
   normalBorderColor  = "#0000dd", -- blue
-  focusedBorderColor = "ff0000", -- red
+  focusedBorderColor = "#ff0000", -- red
 
   startupHook        = myStartupHook,
   layoutHook         = avoidStruts $ myLayoutHook,
