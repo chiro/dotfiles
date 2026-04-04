@@ -4,8 +4,8 @@
 (use-package google-c-style
   :ensure t
   :defer 1
-  :hook (c-mode-common-hook . google-set-c-style)
-  :hook (c-mode-common-hook . google-make-newline-indent)
+  :hook (c-mode-common . google-set-c-style)
+  :hook (c-mode-common . google-make-newline-indent)
   :mode (("\\.c$" . c-mode)
          ("\\.h$" . c++-mode)
          ("\\.cpp$" . c++-mode)
@@ -17,7 +17,7 @@
 (use-package haskell-mode
   :ensure t
   :mode (("\\.hs$" . haskell-mode))
-  :hook (haskell-mode-hook my/haskell-mode-hook))
+  :hook (haskell-mode . my/haskell-mode-hook))
 
 (defun my/haskell-mode-hook ()
   (turn-on-haskell-doc-mode)
