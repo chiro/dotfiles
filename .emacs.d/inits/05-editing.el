@@ -41,8 +41,8 @@
   :if (>= (string-to-number emacs-version) 29)
   :ensure nil
   :bind
-  ([remap scroll-up-command] . pixel-scroll-interpolate-up)
-  ([remap scroll-down-command] . pixel-scroll-interpolate-down)
+  ([remap scroll-up-command] . pixel-scroll-interpolate-down)
+  ([remap scroll-down-command] . pixel-scroll-interpolate-up)
   :custom
   (pixel-scroll-precision-interpolate-page t)
   :init
