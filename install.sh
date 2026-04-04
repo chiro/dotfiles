@@ -68,7 +68,6 @@ mkdir -p "${HOME}"/.config/tmux
 ln -sf $(pwd)/.tmux.conf "${HOME}"/.config/tmux/tmux.conf
 
 # X/XMonad
-ln -sf $(pwd)/.Xresources "${HOME}"/.Xresources
 ln -sf $(pwd)/.xprofile "${HOME}"/.xprofile
 mkdir -p "${HOME}"/.xmonad
 ln -sf $(pwd)/.xmonad/xmonad.hs "${HOME}"/.xmonad/xmonad.hs
