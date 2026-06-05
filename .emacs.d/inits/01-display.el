@@ -28,6 +28,18 @@
 ;; No menu bar
 (menu-bar-mode 0)
 
+;; Disable Bidirectional Text Scanning
+(setq-default bidi-display-reordering 'left-to-right
+              bidi-paragraph-direction 'left-to-right)
+(setq bidi-inhibit-bpa t)
+
+;; Skip Fontification During Input
+(setq redisplay-skip-fontification-on-input t)
+
+;; Don’t Render Cursors in Non-Focused Windows
+(setq-default cursor-in-non-selected-windows nil)
+(setq highlight-nonselected-windows nil)
+
 (when (window-system)
   ;; Hide scroll bar
   (set-scroll-bar-mode nil)

@@ -1,3 +1,5 @@
+(setq read-process-output-max (* 4 1024 1024)) ; 4MB
+
 (use-package lsp-mode
   :hook ((rust-mode . lsp)
          (web-mode . lsp)
