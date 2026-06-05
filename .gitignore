@@ -77,3 +77,6 @@ cabal.sandbox.config
 # claude code
 CLAUDE.md
 .claude/
+
+# Codex
+.codex
