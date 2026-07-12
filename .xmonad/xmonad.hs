@@ -63,10 +63,11 @@ myStartupHook = do
   spawnOnce "fcitx5"
   spawnOnce "xscreensaver --no-splash"
 
-myWorkspaces = ["term", "emacs", "Web", "Slack", "5", "6", "7", "8", "9"]
+myWorkspaces = ["term", "emacs", "Web", "4", "5", "6", "7", "8", "9"]
 
 myManageHook = composeAll
   [ className =? "Emacs" --> doShift "emacs"
-  , className =? "Slack" --> doShift "Slack"
+  . className =? "Discord" --> doShift "4"
+  . className =? "Steam" --> doShift "5"
   , manageDocks
   ]
