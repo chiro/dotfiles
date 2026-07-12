@@ -1,17 +1,7 @@
 {
   "model": "opus",
   "enabledPlugins": {
-    "rust-analyzer-lsp@claude-plugins-official": true,
-    "dig@kuu-marketplace": true,
-    "deslop@kuu-marketplace": true,
-    "decomposition@kuu-marketplace": true
+    "rust-analyzer-lsp@claude-plugins-official": true
   },
-  "extraKnownMarketplaces": {
-    "kuu-marketplace": {
-      "source": {
-        "source": "github",
-        "repo": "fumiya-kume/claude-code"
-      }
-    }
-  }
+  "tui": "fullscreen"
 }
