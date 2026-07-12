@@ -37,7 +37,10 @@ defaults = def {
   `additionalKeys`
   [ ((0, 0x1008FF11), spawn "amixer -D pulse sset Master 2%-"),
     ((0, 0x1008FF12), spawn "amixer -D pulse set Master toggle"),
-    ((0, 0x1008FF13), spawn "amixer -D pulse sset Master 2%+") ]
+    ((0, 0x1008FF13), spawn "amixer -D pulse sset Master 2%+"),
+    -- XF86MonBrightnessUp / XF86MonBrightnessDown (writes via video group, no sudo)
+    ((0, 0x1008FF02), spawn "brightnessctl set 5%+"),
+    ((0, 0x1008FF03), spawn "brightnessctl set 5%-") ]
 
 myLayoutHook = tiled ||| Mirror tiled ||| Full
   where
