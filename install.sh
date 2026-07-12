@@ -73,6 +73,11 @@ ln -sf "${DOTFILES_DIR}"/.xmonad/xmonad.hs "${HOME}"/.xmonad/xmonad.hs
 mkdir -p "${HOME}"/.config/polybar
 ln -sf "${DOTFILES_DIR}"/polybar.config.ini "${HOME}"/.config/polybar/config.ini
 
+if [[ ! -f /usr/share/fonts/TTF/SymbolsNerdFontMono-Regular.ttf ]]; then
+    echo "Symbols Nerd Font Mono not found. Installing..."
+    sudo pacman -S --noconfirm ttf-nerd-fonts-symbols-mono
+fi
+
 # Claude Code
 mkdir -p "${HOME}"/.claude/agents
 ln -sf "${DOTFILES_DIR}"/.claude/CLAUDE.md "${HOME}"/.claude/CLAUDE.md
