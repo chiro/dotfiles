@@ -67,7 +67,7 @@ myWorkspaces = ["term", "emacs", "Web", "4", "5", "6", "7", "8", "9"]
 
 myManageHook = composeAll
   [ className =? "Emacs" --> doShift "emacs"
-  . className =? "Discord" --> doShift "4"
-  . className =? "Steam" --> doShift "5"
+  , className =? "Discord" --> doShift "4"
+  , className =? "Steam" --> doShift "5"
   , manageDocks
   ]
