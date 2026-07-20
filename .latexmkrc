@@ -9,4 +9,8 @@ $pdf_mode = 3; # generates pdf via dvipdfmx
 
 $pvc_view_file_via_temporary = 0;
 
-$pdf_previewer = "open -ga ~/Applications/Skim.app";
+if ($^O eq 'darwin') {
+    $pdf_previewer = "open -ga ~/Applications/Skim.app";
+} elsif ($^O eq 'linux') {
+    $pdf_previewer = 'evince %O %S';
+}

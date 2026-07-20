@@ -90,7 +90,7 @@ Ordered by severity. Check items off as they are fixed.
   `polybar.config.ini` (use `interface-type = wireless` / `wired` instead),
   `amdgpu_bl1` backlight card, `BAT0`.
 
-- [ ] **`.latexmkrc:12` is macOS-only.** `$pdf_previewer = "open -ga
+- [x] **`.latexmkrc:12` is macOS-only.** `$pdf_previewer = "open -ga
   ~/Applications/Skim.app"` — on Linux use zathura/evince, or make it conditional.
 
 ## Minor
