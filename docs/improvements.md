@@ -32,7 +32,7 @@ Ordered by severity. Check items off as they are fixed.
   is `anzu-deactivate-region` (verified against the installed anzu.el);
   `anzu-deactive-region` silently does nothing.
 
-- [ ] **`.gemrc` — options removed from RubyGems.** `--no-rdoc --no-ri` were removed
+- [x] **`.gemrc` — options removed from RubyGems.** `--no-rdoc --no-ri` were removed
   in RubyGems 3 (2018); `gem install` errors on them. Modern equivalent:
   `gem: --no-document`.
 
