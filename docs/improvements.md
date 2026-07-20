@@ -36,7 +36,7 @@ Ordered by severity. Check items off as they are fixed.
   in RubyGems 3 (2018); `gem install` errors on them. Modern equivalent:
   `gem: --no-document`.
 
-- [ ] **`.emacs.d/inits/11-gptel.el:39` — default model likely doesn't take effect.**
+- [x] **`.emacs.d/inits/11-gptel.el:39` — default model likely doesn't take effect.**
   `(setopt gptel-model gemini-model)` sets a string where gptel expects a symbol, and
   picking a non-default backend also requires setting `gptel-backend` — otherwise the
   default backend remains ChatGPT. Test with a fresh `M-x gptel` to confirm.

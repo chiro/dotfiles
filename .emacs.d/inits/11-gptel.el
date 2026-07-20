@@ -21,8 +21,8 @@
   :defer t
   :config
   ;; Centralize model name
-  (let ((claude-model "claude-sonnet-4-5")
-        (gemini-model "gemini-3-pro-preview"))
+  (let ((claude-model 'claude-sonnet-4-5)
+        (gemini-model 'gemini-3-pro-preview))
     (gptel-make-anthropic "Claude-thinking"
       :key chiro-anthropic-api-key ; gptel handles x-api-key with this
       :stream t
@@ -30,12 +30,13 @@
       :request-params '(:thinking (:type "enabled" :budget_tokens 2048)
                                   :max_tokens 4096))
 
-    (gptel-make-gemini "Gemini"
-      :key chiro-gemini-api-key
-      :stream t)
-
-    ;; Set default model using the variable
-    (setopt gptel-model gemini-model)))
+    (let ((gemini-backend
+           (gptel-make-gemini "Gemini"
+             :key chiro-gemini-api-key
+             :stream t
+             :models (list gemini-model))))
+      (setopt gptel-backend gemini-backend
+              gptel-model gemini-model))))
 
 (use-package gptel-aibo
   :ensure t
