@@ -64,7 +64,7 @@ Ordered by severity. Check items off as they are fixed.
   `["term", "emacs", "Web", "Slack", ...]` and Slack placement rules that no longer
   match the code.
 
-- [ ] **`.claude/settings.local.json` is committed and symlinked, yet `.gitignore:84`
+- [x] **`.claude/settings.local.json` is committed and symlinked, yet `.gitignore:84`
   ignores it everywhere.** "Local" settings are meant to be per-machine; committing
   them contradicts the ignore rule. Either fold its contents into `settings.json`, or
   remove it from git with `git rm --cached`. In the latter case, also change
