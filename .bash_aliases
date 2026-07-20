@@ -18,11 +18,12 @@ function peco-select-history() {
 bind -x '"\C-r": peco-select-history'
 
 function peco-ghq-cd() {
-    local selected_file=$(ghq list --full-path | peco --query "$LBUFFER")
+    local selected_file
+    selected_file=$(ghq list --full-path | peco --query "${READLINE_LINE:-}")
     if [ -n "$selected_file" ]; then
         if [ -t 1 ]; then
-            echo ${selected_file}
-            cd ${selected_file}
+            printf '%s\n' "${selected_file}"
+            cd -- "${selected_file}" || return
         fi
     fi
 }
