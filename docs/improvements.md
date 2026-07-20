@@ -55,7 +55,7 @@ Ordered by severity. Check items off as they are fixed.
   but distinguish them from undo history: they generally expose filenames, metadata,
   or command history rather than full historical file contents.
 
-- [ ] **The root and XMonad `CLAUDE.md` files are gitignored and not versioned.**
+- [x] **The root and XMonad `CLAUDE.md` files are gitignored and not versioned.**
   `.gitignore:78` ignores `CLAUDE.md` globally, so `dotfiles/CLAUDE.md` and
   `.xmonad/CLAUDE.md` exist only on this machine — a fresh clone loses them. (The
   separate `.claude/CLAUDE.md` is already tracked.) If unintended, add both

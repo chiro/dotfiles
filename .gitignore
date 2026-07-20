@@ -76,6 +76,8 @@ cabal.sandbox.config
 
 # claude code
 CLAUDE.md
+!/CLAUDE.md
+!/.xmonad/CLAUDE.md
 .claude/
 
 # Codex
