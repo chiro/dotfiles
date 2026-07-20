@@ -11,6 +11,21 @@
               tab-width        4   ; size of tab is 4
               )
 
+;; Keep generated state outside the symlinked dotfiles repository.
+(defconst chiro-emacs-cache-directory
+  (file-name-as-directory
+   (expand-file-name "emacs" (or (getenv "XDG_CACHE_HOME") "~/.cache"))))
+
+(dolist (directory '("" "auto-save-list" "undo"))
+  (make-directory (expand-file-name directory chiro-emacs-cache-directory) t))
+
+(setopt auto-save-list-file-prefix
+        (expand-file-name "auto-save-list/.saves-" chiro-emacs-cache-directory)
+        recentf-save-file
+        (expand-file-name "recentf" chiro-emacs-cache-directory))
+(setq transient-history-file
+      (expand-file-name "transient-history.el" chiro-emacs-cache-directory))
+
 ; 最近使ったファイル
 (recentf-mode)
 
@@ -38,7 +53,7 @@
   (global-undo-tree-mode)
   (setopt undo-tree-auto-save-history t)
   (setopt undo-tree-history-directory-alist
-          `(("." . ,(expand-file-name "undo" user-emacs-directory)))))
+          `(("." . ,(expand-file-name "undo" chiro-emacs-cache-directory)))))
 
 ;; pixel-scroll
 (use-package pixel-scroll

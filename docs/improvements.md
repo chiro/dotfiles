@@ -43,7 +43,7 @@ Ordered by severity. Check items off as they are fixed.
 
 ## Security / privacy
 
-- [ ] **Plaintext secret history inside the repo tree.** `~/.emacs.d` is symlinked
+- [x] **Plaintext secret history inside the repo tree.** `~/.emacs.d` is symlinked
   into the repo, and `undo-tree-auto-save-history` writes to `.emacs.d/undo/` — which
   contains undo history for `.authinfo` (holds Anthropic/Gemini API keys per the
   gptel comments), `.ssh/config`, and ICPC `secrets2023/teams.csv`. They are only
