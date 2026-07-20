@@ -73,7 +73,7 @@ Ordered by severity. Check items off as they are fixed.
 
 ## Portability / robustness
 
-- [ ] **`install.sh` mixes package managers.** `sudo apt-get install` for ruby build
+- [x] **`install.sh` mixes package managers.** `sudo apt-get install` for ruby build
   deps (line 15) but `pacman -S` for the font (line 78). On an Arch box the ruby
   branch dies, and `set -e` aborts the whole script. Pick one or detect the distro.
 

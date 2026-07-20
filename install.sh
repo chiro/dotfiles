@@ -1,8 +1,28 @@
 #!/bin/bash
 
-set -eu
+set -euo pipefail
 
 DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
+
+if command -v pacman >/dev/null 2>&1; then
+    PACKAGE_MANAGER="pacman"
+elif command -v apt-get >/dev/null 2>&1; then
+    PACKAGE_MANAGER="apt"
+else
+    echo "Unsupported distribution: pacman or apt-get is required." >&2
+    exit 1
+fi
+
+install_packages() {
+    case "${PACKAGE_MANAGER}" in
+        pacman)
+            sudo pacman -S --needed --noconfirm "$@"
+            ;;
+        apt)
+            sudo apt-get install -y "$@"
+            ;;
+    esac
+}
 
 if [[ ! -d "${HOME}"/.asdf ]]; then
     echo "asdf not found. Installing..."
@@ -12,9 +32,17 @@ fi
 
 if [[ ! -f "${HOME}"/.asdf/shims/ruby ]]; then
     echo "ruby not found. Installing..."
-    sudo apt-get install autoconf patch build-essential rustc libssl-dev \
-         libyaml-dev libreadline6-dev zlib1g-dev libgmp-dev libncurses5-dev \
-         libffi-dev libgdbm6 libgdbm-dev libdb-dev uuid-dev
+    case "${PACKAGE_MANAGER}" in
+        pacman)
+            install_packages base-devel rust openssl libyaml readline zlib gmp ncurses \
+                libffi gdbm libdb
+            ;;
+        apt)
+            install_packages autoconf patch build-essential rustc libssl-dev \
+                libyaml-dev libreadline-dev zlib1g-dev libgmp-dev libncurses-dev \
+                libffi-dev libgdbm-dev libdb-dev uuid-dev
+            ;;
+    esac
     asdf plugin add ruby
     asdf install ruby latest
 fi
@@ -73,9 +101,14 @@ ln -sf "${DOTFILES_DIR}"/.xmonad/xmonad.hs "${HOME}"/.xmonad/xmonad.hs
 mkdir -p "${HOME}"/.config/polybar
 ln -sf "${DOTFILES_DIR}"/polybar.config.ini "${HOME}"/.config/polybar/config.ini
 
-if [[ ! -f /usr/share/fonts/TTF/SymbolsNerdFontMono-Regular.ttf ]]; then
+if ! fc-list : family 2>/dev/null | grep -Fq "Symbols Nerd Font Mono"; then
     echo "Symbols Nerd Font Mono not found. Installing..."
-    sudo pacman -S --noconfirm ttf-nerd-fonts-symbols-mono
+    install_packages curl fontconfig
+    mkdir -p "${HOME}"/.local/share/fonts/NerdFontsSymbolsOnly
+    curl -fsSL \
+        https://github.com/ryanoasis/nerd-fonts/releases/latest/download/NerdFontsSymbolsOnly.tar.xz \
+        | tar -xJ -C "${HOME}"/.local/share/fonts/NerdFontsSymbolsOnly
+    fc-cache -f "${HOME}"/.local/share/fonts/NerdFontsSymbolsOnly
 fi
 
 # Claude Code
