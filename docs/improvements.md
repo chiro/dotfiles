@@ -28,7 +28,7 @@ Ordered by severity. Check items off as they are fixed.
   `terraform-hook`. The installed package provides a minor mode, so it should be
   `:hook (terraform-mode . terraform-format-on-save-mode)`.
 
-- [ ] **`.emacs.d/inits/06-anzu.el:7` — typo sets a dead variable.** The real option
+- [x] **`.emacs.d/inits/06-anzu.el:7` — typo sets a dead variable.** The real option
   is `anzu-deactivate-region` (verified against the installed anzu.el);
   `anzu-deactive-region` silently does nothing.
 

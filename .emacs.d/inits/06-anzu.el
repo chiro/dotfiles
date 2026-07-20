@@ -4,5 +4,5 @@
   (global-anzu-mode +1)
   :custom
   (anzu-mode-lighter "")
-  (anzu-deactive-region t)
+  (anzu-deactivate-region t)
   (anzu-search-threshold 1000))
