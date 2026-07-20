@@ -95,7 +95,7 @@ Ordered by severity. Check items off as they are fixed.
 
 ## Minor
 
-- [ ] `.bash_aliases:8-10` — the `A && B || C && D || E` chain is left-associative,
+- [x] `.bash_aliases:8-10` — the `A && B || C && D || E` chain is left-associative,
   so even when `gtac` is found, the later `&& tac="tac"` overwrites it; the fallback
   never worked (harmless on Linux, but an `if/elif` would be correct). Also
   `peco-git-add` (`awk '{print $2}'`) breaks on paths with spaces and rename entries,

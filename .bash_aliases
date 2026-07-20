@@ -30,10 +30,12 @@ function peco-ghq-cd() {
 alias gl=peco-ghq-cd
 
 function peco-git-add() {
-    local selected=$(git status -s | peco | awk '{print $2}')
-    if [ -n "$selected" ]; then
-        selected=$(tr '\n' ' ' <<< "$selected")
-        git add $selected
+    local -a selected_files=()
+    mapfile -d '' -t selected_files < <(
+        git ls-files --modified --deleted --others --exclude-standard -z | peco --null
+    )
+    if ((${#selected_files[@]})); then
+        git add -- "${selected_files[@]}"
     fi
 }
 alias gadd=peco-git-add
