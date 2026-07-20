@@ -37,7 +37,8 @@
   :config
   (global-undo-tree-mode)
   (setopt undo-tree-auto-save-history t)
-  (setopt undo-tree-history-directory-alist `(("." .  ,(concat user-emacs-directory "/undo")))))
+  (setopt undo-tree-history-directory-alist
+          `(("." . ,(expand-file-name "undo" user-emacs-directory)))))
 
 ;; pixel-scroll
 (use-package pixel-scroll

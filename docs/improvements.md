@@ -104,7 +104,7 @@ Ordered by severity. Check items off as they are fixed.
 - [ ] `.tmux.conf:6` — `default-terminal 'xterm-256color'` is discouraged inside
   tmux; `tmux-256color` (plus `terminal-overrides` for truecolor) is the correct
   value.
-- [ ] `.emacs.d/inits/05-editing.el:36` — `(concat user-emacs-directory "/undo")`
+- [x] `.emacs.d/inits/05-editing.el:36` — `(concat user-emacs-directory "/undo")`
   produces a double slash since `user-emacs-directory` already ends in `/`.
 - [ ] `.emacs.d/inits/01-display.el` — global `show-trailing-whitespace` also lights
   up special/terminal buffers; commonly scoped to `prog-mode-hook`/`text-mode-hook`.
