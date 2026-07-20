@@ -4,11 +4,15 @@ alias g='git'
 alias b='git b'
 
 function peco-select-history() {
-    local tac
-    which gtac &> /dev/null && tac="gtac" || \
-            which tac &> /dev/null && tac="tac" || \
-                    tac="tail -r"
-    READLINE_LINE=$(HISTTIMEFORMAT= history | $tac | sed -e 's/^\s*[0-9]\+\s\+//' | awk '!a[$0]++' | peco --query "$READLINE_LINE")
+    local -a reverse_command
+    if command -v gtac >/dev/null 2>&1; then
+        reverse_command=(gtac)
+    elif command -v tac >/dev/null 2>&1; then
+        reverse_command=(tac)
+    else
+        reverse_command=(tail -r)
+    fi
+    READLINE_LINE=$(HISTTIMEFORMAT='' history | "${reverse_command[@]}" | sed -e 's/^\s*[0-9]\+\s\+//' | awk '!a[$0]++' | peco --query "$READLINE_LINE")
     READLINE_POINT=${#READLINE_LINE}
 }
 bind -x '"\C-r": peco-select-history'
