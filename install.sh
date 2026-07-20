@@ -100,6 +100,7 @@ mkdir -p "${HOME}"/.xmonad
 ln -sf "${DOTFILES_DIR}"/.xmonad/xmonad.hs "${HOME}"/.xmonad/xmonad.hs
 mkdir -p "${HOME}"/.config/polybar
 ln -sf "${DOTFILES_DIR}"/polybar.config.ini "${HOME}"/.config/polybar/config.ini
+ln -sf "${DOTFILES_DIR}"/polybar.launch.sh "${HOME}"/.config/polybar/launch.sh
 
 if ! fc-list : family 2>/dev/null | grep -Fq "Symbols Nerd Font Mono"; then
     echo "Symbols Nerd Font Mono not found. Installing..."

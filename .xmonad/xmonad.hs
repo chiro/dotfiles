@@ -58,7 +58,7 @@ myLayoutHook = tiled ||| Mirror tiled ||| Full
 
 myStartupHook :: X ()
 myStartupHook = do
-  spawnOnce "polybar main"
+  spawnOnce "~/.config/polybar/launch.sh"
   spawnOnce "nitrogen --restore"
   spawnOnce "fcitx5"
   spawnOnce "xscreensaver --no-splash"

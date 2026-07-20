@@ -86,7 +86,7 @@ Ordered by severity. Check items off as they are fixed.
   xscreensaver, brightnessctl, and the RictyDiminished font used by both alacritty and
   polybar — only the Nerd Font symbols are handled).
 
-- [ ] **Hardware-specific values committed.** `wlp3s0` / `enp2s0` in
+- [x] **Hardware-specific values committed.** `wlp3s0` / `enp2s0` in
   `polybar.config.ini` (use `interface-type = wireless` / `wired` instead),
   `amdgpu_bl1` backlight card, `BAT0`.
 
