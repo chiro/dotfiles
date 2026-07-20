@@ -86,7 +86,7 @@
 ;;==================================================
 (use-package terraform-mode
   :defer 1
-  :hook (terraform . terraform-format-on-save))
+  :hook (terraform-mode . terraform-format-on-save-mode))
 
 (use-package terraform-doc)
 

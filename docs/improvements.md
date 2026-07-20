@@ -23,7 +23,7 @@ Ordered by severity. Check items off as they are fixed.
     ]
   ```
 
-- [ ] **`.emacs.d/inits/20-proglangs.el:89` — terraform format-on-save never
+- [x] **`.emacs.d/inits/20-proglangs.el:89` — terraform format-on-save never
   activates.** `:hook (terraform . terraform-format-on-save)` adds to a nonexistent
   `terraform-hook`. The installed package provides a minor mode, so it should be
   `:hook (terraform-mode . terraform-format-on-save-mode)`.
