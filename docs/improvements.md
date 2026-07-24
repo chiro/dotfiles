@@ -113,7 +113,7 @@ Ordered by severity. Check items off as they are fixed.
   is `\\.ml[iylp]?\\'`. Most `:mode` entries there (`.json`, `.go`, `.rs`, `.py`) also
   duplicate what the packages already register via autoloads. The same applies to the
   `.md` entry in `.emacs.d/inits/33-markdown.el`.
-- [ ] `.gitconfig` — the `[color]` block has been the default since git 1.8.4 and can
+- [x] `.gitconfig` — the `[color]` block has been the default since git 1.8.4 and can
   be deleted; `push.autoSetupRemote = true` and `rebase.autostash = true` would fit
   the alias-heavy workflow.
 - [ ] `README.md` is only eight lines and contains almost no guidance; what gets

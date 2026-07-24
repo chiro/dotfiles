@@ -7,11 +7,6 @@
     excludesfile = ~/.gitignore
     editor = vim
 
-[color]
-    diff = auto
-    status = auto
-    branch = auto
-
 [commit]
     cleanup = scissors
 
@@ -38,6 +33,12 @@
 
 [pull]
     ff = only
+
+[push]
+    autoSetupRemote = true
+
+[rebase]
+    autoStash = true
 
 [ghq]
     root = ~/src
