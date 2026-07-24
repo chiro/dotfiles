@@ -108,7 +108,7 @@ Ordered by severity. Check items off as they are fixed.
   produces a double slash since `user-emacs-directory` already ends in `/`.
 - [x] `.emacs.d/inits/01-display.el` — global `show-trailing-whitespace` also lights
   up special/terminal buffers; commonly scoped to `prog-mode-hook`/`text-mode-hook`.
-- [ ] `.emacs.d/inits/20-proglangs.el` — file-extension regexes use `$` and the OCaml
+- [x] `.emacs.d/inits/20-proglangs.el` — file-extension regexes use `$` and the OCaml
   one (`"\\.ml[iylp]?"`) is unanchored, so it matches e.g. `foo.mlx`; the convention
   is `\\.ml[iylp]?\\'`. Most `:mode` entries there (`.json`, `.go`, `.rs`, `.py`) also
   duplicate what the packages already register via autoloads. The same applies to the

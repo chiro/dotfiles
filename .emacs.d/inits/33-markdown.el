@@ -1,2 +1,1 @@
-(use-package markdown-mode
-  :mode (("\\.md$" . markdown-mode)))
+(use-package markdown-mode :defer t)

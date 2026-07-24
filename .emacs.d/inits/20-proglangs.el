@@ -5,18 +5,15 @@
   :ensure t
   :defer 1
   :hook (c-mode-common . google-set-c-style)
-  :hook (c-mode-common . google-make-newline-indent)
-  :mode (("\\.c$" . c-mode)
-         ("\\.h$" . c++-mode)
-         ("\\.cpp$" . c++-mode)
-         ("\\.hpp$" . c++-mode)))
+  :hook (c-mode-common . google-make-newline-indent))
+
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 
 ;;==================================================
 ;; Haskell
 ;;==================================================
 (use-package haskell-mode
   :ensure t
-  :mode (("\\.hs$" . haskell-mode))
   :hook (haskell-mode . my/haskell-mode-hook))
 
 (defun my/haskell-mode-hook ()
@@ -30,7 +27,6 @@
 ;; OCaml
 ;;==================================================
 (use-package tuareg
-  :mode (("\\.ml[iylp]?" . tuareg-mode))
   :commands (tuareg-mode))
 
 (autoload 'camldebug "camldebug" "Run the Caml debugger" t)
@@ -41,30 +37,28 @@
 ;; Web mode
 ;;==================================================
 (use-package web-mode
-  :mode (("\\.erb$" . web-mode)
-         ("\\.html$" . web-mode)
-         ("\\.ts[x]?$" . web-mode)
-         ("\\.js[x]?$" . web-mode)))
+  :mode (("\\.erb\\'" . web-mode)
+         ("\\.html\\'" . web-mode)
+         ("\\.tsx?\\'" . web-mode)
+         ("\\.jsx?\\'" . web-mode)))
 
 ;;==================================================
 ;; Ruby
 ;;==================================================
-(use-package haml-mode
-  :mode (("\\.haml$" . haml-mode)))
+(use-package haml-mode :defer t)
 
 ;;==================================================
 ;; Golang
 ;;==================================================
 (use-package go-mode
-  :mode (("\\.go$" . go-mode))
   :hook (go-mode . (lambda () (add-hook 'before-save-hook #'gofmt-before-save nil t))))
 
 ;;==================================================
 ;; Python
 ;;==================================================
 (use-package python-mode
-  :custom (python-indent 4)
-  :mode (("\\.py$" . python-mode)))
+  :defer t
+  :custom (python-indent 4))
 
 (use-package python-docstring
   :hook python-mode)
@@ -77,7 +71,6 @@
 (add-to-list 'exec-path (expand-file-name "~/.cargo/bin/"))
 
 (use-package rust-mode
-  :mode (("\\.rs$" . rust-mode))
   :commands (rust-mode)
   :custom (rust-format-on-save t))
 
@@ -100,5 +93,4 @@
 (use-package magit)
 
 ;; JSON
-(use-package json-mode
-  :mode (("\\.json$" . json-mode)))
+(use-package json-mode :defer t)
