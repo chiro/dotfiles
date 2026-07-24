@@ -101,8 +101,8 @@ Ordered by severity. Check items off as they are fixed.
   `peco-git-add` (`awk '{print $2}'`) breaks on paths with spaces and rename entries,
   and `cd ${selected_file}` in `peco-ghq-cd` is unquoted (`$LBUFFER` there is a
   zsh-ism, always empty in bash).
-- [ ] `.tmux.conf:6` — `default-terminal 'xterm-256color'` is discouraged inside
-  tmux; `tmux-256color` (plus `terminal-overrides` for truecolor) is the correct
+- [x] `.tmux.conf:6` — `default-terminal 'xterm-256color'` is discouraged inside
+  tmux; `tmux-256color` (plus `terminal-features` for truecolor) is the correct
   value.
 - [x] `.emacs.d/inits/05-editing.el:36` — `(concat user-emacs-directory "/undo")`
   produces a double slash since `user-emacs-directory` already ends in `/`.
