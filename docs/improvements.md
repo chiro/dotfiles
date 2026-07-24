@@ -116,6 +116,6 @@ Ordered by severity. Check items off as they are fixed.
 - [x] `.gitconfig` — the `[color]` block has been the default since git 1.8.4 and can
   be deleted; `push.autoSetupRemote = true` and `rebase.autostash = true` would fit
   the alias-heavy workflow.
-- [ ] `README.md` is only eight lines and contains almost no guidance; what gets
+- [x] `README.md` is only eight lines and contains almost no guidance; what gets
   symlinked where and the prerequisites (currently only in the uncommitted CLAUDE.md)
   belong in the README.
