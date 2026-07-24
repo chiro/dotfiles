@@ -20,7 +20,11 @@
 (set-face-foreground 'line-number-current-line "#080")
 
 ;; 行末の空白を強調表示
-(setopt show-trailing-whitespace t)
+(defun chiro-enable-show-trailing-whitespace ()
+  (setq-local show-trailing-whitespace t))
+
+(add-hook 'prog-mode-hook #'chiro-enable-show-trailing-whitespace)
+(add-hook 'text-mode-hook #'chiro-enable-show-trailing-whitespace)
 (set-face-background 'trailing-whitespace "#b14770")
 
 ;; No tool bar
