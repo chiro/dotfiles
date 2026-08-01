@@ -32,6 +32,7 @@ The script creates these links:
 | `polybar.config.ini`, `polybar.launch.sh` | `~/.config/polybar/` |
 | `.claude/` shared settings and agents | `~/.claude/` |
 | `alacritty.toml` | `~/.config/alacritty/alacritty.toml` |
+| `herdr.config.toml` | `~/.config/herdr/config.toml` |
 
 If `~/.emacs.d` is already a real directory, the current installer leaves it
 untouched; move it aside before installing if you want the repository version.

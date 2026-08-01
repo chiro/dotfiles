@@ -1,0 +1,6 @@
+onboarding = false
+
+[keys]
+prefix = "ctrl+z"
+detach = "prefix+d"
+next_tab = "prefix+space"

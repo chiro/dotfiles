@@ -124,3 +124,7 @@ ln -sf "${DOTFILES_DIR}"/alacritty.toml "${HOME}"/.config/alacritty/alacritty.to
 if [[ ! -d "${HOME}"/.config/alacritty/themes ]]; then
     git clone https://github.com/alacritty/alacritty-theme "${HOME}"/.config/alacritty/themes
 fi
+
+# herdr
+mkdir -p "${HOME}"/.config/herdr
+ln -sf "${DOTFILES_DIR}"/herdr.config.toml "${HOME}"/.config/herdr/config.toml
