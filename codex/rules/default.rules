@@ -1,0 +1,99 @@
+prefix_rule(pattern=["cargo", "run", "--release", "--manifest-path", "../../tanakh/man-interpreter/Cargo.toml", "--bin"], decision="allow")
+prefix_rule(pattern=["cabal", "test"], decision="allow")
+
+# Git read-only commands.
+prefix_rule(
+    pattern=[
+        "git",
+        [
+            "annotate",
+            "blame",
+            "cat-file",
+            "check-attr",
+            "check-ignore",
+            "check-mailmap",
+            "check-ref-format",
+            "cherry",
+            "count-objects",
+            "describe",
+            "diff",
+            "diff-files",
+            "diff-index",
+            "diff-tree",
+            "for-each-ref",
+            "format-rev",
+            "get-tar-commit-id",
+            "grep",
+            "last-modified",
+            "log",
+            "ls-files",
+            "ls-remote",
+            "ls-tree",
+            "merge-base",
+            "name-rev",
+            "pack-redundant",
+            "patch-id",
+            "range-diff",
+            "repo",
+            "request-pull",
+            "rev-list",
+            "rev-parse",
+            "shortlog",
+            "show",
+            "show-branch",
+            "show-index",
+            "show-ref",
+            "status",
+            "var",
+            "verify-commit",
+            "verify-pack",
+            "verify-tag",
+            "whatchanged",
+        ],
+    ],
+    decision="allow",
+    justification="Inspect Git repository state and objects",
+)
+prefix_rule(pattern=["git", "bundle", ["list-heads", "verify"]], decision="allow", justification="Inspect Git bundles")
+prefix_rule(pattern=["git", "commit-graph", "verify"], decision="allow", justification="Verify the Git commit graph")
+prefix_rule(pattern=["git", "config", ["get", "list"]], decision="allow", justification="Read Git configuration")
+prefix_rule(pattern=["git", "multi-pack-index", "verify"], decision="allow", justification="Verify the Git multi-pack index")
+prefix_rule(pattern=["git", "notes", ["get-ref", "list", "show"]], decision="allow", justification="Read Git notes")
+prefix_rule(pattern=["git", "reflog", ["exists", "show"]], decision="allow", justification="Read Git reflogs")
+prefix_rule(pattern=["git", "refs", ["exists", "list", "verify"]], decision="allow", justification="Inspect Git references")
+prefix_rule(pattern=["git", "remote", ["get-url", "show"]], decision="allow", justification="Read Git remote information")
+prefix_rule(pattern=["git", "rerere", ["diff", "remaining", "status"]], decision="allow", justification="Inspect recorded conflict resolutions")
+prefix_rule(pattern=["git", "sparse-checkout", ["check-rules", "list"]], decision="allow", justification="Inspect Git sparse-checkout state")
+prefix_rule(pattern=["git", "stash", ["list", "show"]], decision="allow", justification="Read Git stashes")
+prefix_rule(pattern=["git", "submodule", ["status", "summary"]], decision="allow", justification="Inspect Git submodules")
+prefix_rule(pattern=["git", "worktree", "list"], decision="allow", justification="List Git worktrees")
+
+# GitHub CLI read-only commands.
+prefix_rule(pattern=["gh", "agent-task", ["list", "view"]], decision="allow", justification="Read GitHub agent task data")
+prefix_rule(pattern=["gh", "alias", "list"], decision="allow", justification="List GitHub CLI aliases")
+prefix_rule(pattern=["gh", "attestation", ["trusted-root", "verify"]], decision="allow", justification="Inspect or verify GitHub artifact attestations")
+prefix_rule(pattern=["gh", "cache", "list"], decision="allow", justification="List GitHub Actions caches")
+prefix_rule(pattern=["gh", "codespace", ["list", "logs", "view"]], decision="allow", justification="Inspect GitHub Codespaces")
+prefix_rule(pattern=["gh", "config", ["get", "list"]], decision="allow", justification="Read GitHub CLI configuration")
+prefix_rule(pattern=["gh", "discussion", ["list", "view"]], decision="allow", justification="Read GitHub Discussions")
+prefix_rule(pattern=["gh", "extension", ["list", "search"]], decision="allow", justification="Inspect GitHub CLI extensions")
+prefix_rule(pattern=["gh", "gist", ["list", "view"]], decision="allow", justification="Read GitHub gists")
+prefix_rule(pattern=["gh", ["gpg-key", "ssh-key"], "list"], decision="allow", justification="List GitHub account keys")
+prefix_rule(pattern=["gh", "issue", ["list", "status", "view"]], decision="allow", justification="Read GitHub issues")
+prefix_rule(pattern=["gh", "label", "list"], decision="allow", justification="List GitHub labels")
+prefix_rule(pattern=["gh", "org", "list"], decision="allow", justification="List GitHub organizations")
+prefix_rule(pattern=["gh", "pr", ["checks", "diff", "list", "status", "view"]], decision="allow", justification="Read GitHub pull requests")
+prefix_rule(pattern=["gh", "project", ["field-list", "item-list", "list", "view"]], decision="allow", justification="Read GitHub Projects")
+prefix_rule(pattern=["gh", "release", ["list", "verify", "verify-asset", "view"]], decision="allow", justification="Inspect GitHub releases")
+prefix_rule(pattern=["gh", "repo", ["list", "read-dir", "read-file", "view"]], decision="allow", justification="Read GitHub repositories")
+prefix_rule(pattern=["gh", "repo", "autolink", ["list", "view"]], decision="allow", justification="Read repository autolinks")
+prefix_rule(pattern=["gh", "repo", "deploy-key", "list"], decision="allow", justification="List repository deploy keys")
+prefix_rule(pattern=["gh", "repo", ["gitignore", "license"], ["list", "view"]], decision="allow", justification="Read GitHub gitignore and license templates")
+prefix_rule(pattern=["gh", "ruleset", ["check", "list", "view"]], decision="allow", justification="Read GitHub repository rulesets")
+prefix_rule(pattern=["gh", "run", ["list", "view", "watch"]], decision="allow", justification="Read GitHub Actions workflow runs")
+prefix_rule(pattern=["gh", "search", ["code", "commits", "issues", "prs", "repos"]], decision="allow", justification="Search GitHub")
+prefix_rule(pattern=["gh", "secret", "list"], decision="allow", justification="List GitHub secret names")
+prefix_rule(pattern=["gh", "skill", ["list", "preview", "search"]], decision="allow", justification="Inspect GitHub agent skills")
+prefix_rule(pattern=["gh", "status"], decision="allow", justification="Read GitHub repository status")
+prefix_rule(pattern=["gh", "variable", ["get", "list"]], decision="allow", justification="Read GitHub Actions variables")
+prefix_rule(pattern=["gh", "workflow", ["list", "view"]], decision="allow", justification="Read GitHub Actions workflows")

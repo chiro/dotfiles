@@ -118,6 +118,10 @@ ln -sf "${DOTFILES_DIR}"/.claude/CLAUDE.md "${HOME}"/.claude/CLAUDE.md
 ln -sf "${DOTFILES_DIR}"/.claude/settings.json "${HOME}"/.claude/settings.json
 ln -sf "${DOTFILES_DIR}"/.claude/agents/code-searcher.md "${HOME}"/.claude/agents/code-searcher.md
 
+# Codex
+mkdir -p "${HOME}"/.codex/rules
+ln -sf "${DOTFILES_DIR}"/codex/rules/default.rules "${HOME}"/.codex/rules/default.rules
+
 # Alacritty
 mkdir -p "${HOME}"/.config/alacritty
 ln -sf "${DOTFILES_DIR}"/alacritty.toml "${HOME}"/.config/alacritty/alacritty.toml

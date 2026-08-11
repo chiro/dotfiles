@@ -31,6 +31,7 @@ The script creates these links:
 | `.xmonad/xmonad.hs` | `~/.xmonad/xmonad.hs` |
 | `polybar.config.ini`, `polybar.launch.sh` | `~/.config/polybar/` |
 | `.claude/` shared settings and agents | `~/.claude/` |
+| `codex/rules/default.rules` | `~/.codex/rules/default.rules` |
 | `alacritty.toml` | `~/.config/alacritty/alacritty.toml` |
 | `herdr.config.toml` | `~/.config/herdr/config.toml` |
 
