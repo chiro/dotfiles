@@ -32,11 +32,16 @@ The script creates these links:
 | `polybar.config.ini`, `polybar.launch.sh` | `~/.config/polybar/` |
 | `.claude/` shared settings and agents | `~/.claude/` |
 | `codex/rules/default.rules` | `~/.codex/rules/default.rules` |
+| `codex/skills/simplify/` | `~/.codex/skills/simplify` |
 | `alacritty.toml` | `~/.config/alacritty/alacritty.toml` |
 | `herdr.config.toml` | `~/.config/herdr/config.toml` |
 
 If `~/.emacs.d` is already a real directory, the current installer leaves it
 untouched; move it aside before installing if you want the repository version.
+
+The `simplify` skill reviews code for unnecessary complexity and applies focused
+simplifications. Invoke it with, for example, `$simplify this change` or
+`$simplify src/example/`.
 
 Generated Emacs state, including undo history and recent files, is stored under
 `$XDG_CACHE_HOME/emacs` (or `~/.cache/emacs`) rather than inside the repository.

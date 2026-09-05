@@ -121,6 +121,8 @@ ln -sf "${DOTFILES_DIR}"/.claude/agents/code-searcher.md "${HOME}"/.claude/agent
 # Codex
 mkdir -p "${HOME}"/.codex/rules
 ln -sf "${DOTFILES_DIR}"/codex/rules/default.rules "${HOME}"/.codex/rules/default.rules
+mkdir -p "${HOME}"/.codex/skills
+ln -sfnT "${DOTFILES_DIR}"/codex/skills/simplify "${HOME}"/.codex/skills/simplify
 
 # Alacritty
 mkdir -p "${HOME}"/.config/alacritty
