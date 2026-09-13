@@ -119,8 +119,14 @@ ln -sf "${DOTFILES_DIR}"/.claude/settings.json "${HOME}"/.claude/settings.json
 ln -sf "${DOTFILES_DIR}"/.claude/agents/code-searcher.md "${HOME}"/.claude/agents/code-searcher.md
 
 # Codex
-mkdir -p "${HOME}"/.codex/rules
-ln -sf "${DOTFILES_DIR}"/codex/rules/default.rules "${HOME}"/.codex/rules/default.rules
+mkdir -p "${HOME}"/.codex
+# Codex discovers regular rule files inside a symlinked rules directory.
+if [[ -d "${HOME}"/.codex/rules && ! -L "${HOME}"/.codex/rules ]]; then
+    CODEX_RULES_BACKUP="$(mktemp -d "${HOME}"/.codex/rules.backup.XXXXXX)"
+    mv "${HOME}"/.codex/rules "${CODEX_RULES_BACKUP}"/rules
+    echo "Existing Codex rules saved to ${CODEX_RULES_BACKUP}/rules"
+fi
+ln -sfnT "${DOTFILES_DIR}"/codex/rules "${HOME}"/.codex/rules
 mkdir -p "${HOME}"/.codex/skills
 ln -sfnT "${DOTFILES_DIR}"/codex/skills/simplify "${HOME}"/.codex/skills/simplify
 

@@ -31,13 +31,18 @@ The script creates these links:
 | `.xmonad/xmonad.hs` | `~/.xmonad/xmonad.hs` |
 | `polybar.config.ini`, `polybar.launch.sh` | `~/.config/polybar/` |
 | `.claude/` shared settings and agents | `~/.claude/` |
-| `codex/rules/default.rules` | `~/.codex/rules/default.rules` |
+| `codex/rules/` | `~/.codex/rules` |
 | `codex/skills/simplify/` | `~/.codex/skills/simplify` |
 | `alacritty.toml` | `~/.config/alacritty/alacritty.toml` |
 | `herdr.config.toml` | `~/.config/herdr/config.toml` |
 
 If `~/.emacs.d` is already a real directory, the current installer leaves it
 untouched; move it aside before installing if you want the repository version.
+
+Codex rules use a directory symlink because Codex skips symlinked rule files.
+If `~/.codex/rules` is a real directory, the installer backs it up under
+`~/.codex/rules.backup.XXXXXX/rules` before creating the link. Restart Codex
+after installation to load the rules.
 
 The `simplify` skill reviews code for unnecessary complexity and applies focused
 simplifications. Invoke it with, for example, `$simplify this change` or
