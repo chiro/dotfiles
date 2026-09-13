@@ -99,3 +99,8 @@ prefix_rule(pattern=["gh", "skill", ["list", "preview", "search"]], decision="al
 prefix_rule(pattern=["gh", "status"], decision="allow", justification="Read GitHub repository status")
 prefix_rule(pattern=["gh", "variable", ["get", "list"]], decision="allow", justification="Read GitHub Actions variables")
 prefix_rule(pattern=["gh", "workflow", ["list", "view"]], decision="allow", justification="Read GitHub Actions workflows")
+prefix_rule(pattern=["cabal", "build", "all"], decision="allow")
+
+# Herdr
+prefix_rule(pattern=["herdr", "agent"], decision="allow")
+prefix_rule(pattern=["herdr", "pane"], decision="allow")
