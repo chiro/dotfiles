@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; -*-
+
 (use-package dashboard
   :diminish
   (dashboard-mode page-break-lines-mode)

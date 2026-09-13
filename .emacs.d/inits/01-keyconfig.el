@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; -*-
+
 ;; set C-h to BackSpace
 (global-set-key (kbd "C-h") 'backward-delete-char)
 

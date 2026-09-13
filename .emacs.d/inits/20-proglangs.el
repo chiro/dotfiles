@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; -*-
+
 ;==================================================
 ; C/C++
 ;==================================================
@@ -12,13 +14,13 @@
 ;;==================================================
 ;; Haskell
 ;;==================================================
+(defun my/haskell-mode-hook ()
+  (turn-on-haskell-doc-mode)
+  (haskell-indentation-mode 1))
+
 (use-package haskell-mode
   :ensure t
   :hook (haskell-mode . my/haskell-mode-hook))
-
-(defun my/haskell-mode-hook ()
-  (turn-on-haskell-doc-mode)
-  (turn-on-haskell-indentation))
 
 (use-package consult-hoogle
   :ensure t)

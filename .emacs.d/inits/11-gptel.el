@@ -1,4 +1,4 @@
-;;; 11-gptel.el --- Configuration for GPT/LLM interaction via gptel
+;;; 11-gptel.el --- Configuration for GPT/LLM interaction via gptel -*- lexical-binding: t; -*-
 
 ;; Sets up gptel for interacting with Claude and Gemini AI models
 ;; Uses auth-source for secure API key management

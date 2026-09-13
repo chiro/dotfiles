@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; -*-
+
 (use-package counsel
   :diminish counsel-mode
   :bind (("M-x" . counsel-M-x)

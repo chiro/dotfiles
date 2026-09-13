@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; -*-
+
 ;; スタートアップ画面を非表示
 (setopt inhibit-startup-screen t)
 
@@ -8,6 +10,7 @@
 (use-package server
   :ensure nil ;; It's needed because server is the built-in module.
   :defer 1
+  :functions server-running-p
   :config
   (unless (server-running-p)
     (server-start)))

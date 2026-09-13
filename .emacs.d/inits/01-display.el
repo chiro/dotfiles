@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; -*-
+
 ;; 文字の色つけ
 (global-font-lock-mode t)
 
@@ -63,7 +65,8 @@
        (:background "Gray"))
       (t
        ()))
-    "*Face used by hl-line.")
+    "*Face used by hl-line."
+    :group 'faces)
   (setopt hl-line-face 'hlline-face)
   (global-hl-line-mode)
 ) ;; end (when (window-system))

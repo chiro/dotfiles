@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; -*-
+
 (use-package ddskk
   :ensure t
   :bind (("C-x j" . skk-mode))

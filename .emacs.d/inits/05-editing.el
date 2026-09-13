@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; -*-
+
 ;; delete region
 (delete-selection-mode t)
 
@@ -23,6 +25,7 @@
         (expand-file-name "auto-save-list/.saves-" chiro-emacs-cache-directory)
         recentf-save-file
         (expand-file-name "recentf" chiro-emacs-cache-directory))
+(defvar transient-history-file)
 (setq transient-history-file
       (expand-file-name "transient-history.el" chiro-emacs-cache-directory))
 

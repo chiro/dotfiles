@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; -*-
+
 (use-package anzu
   :defer 1
   :config
