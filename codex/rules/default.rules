@@ -69,9 +69,11 @@ prefix_rule(pattern=["git", "submodule", ["status", "summary"]], decision="allow
 prefix_rule(pattern=["git", "worktree", "list"], decision="allow", justification="List Git worktrees")
 
 # GitHub CLI read-only commands.
+prefix_rule(pattern=["gh", ["--version", "completion", "help", "licenses"]], decision="allow", justification="Read GitHub CLI information")
 prefix_rule(pattern=["gh", "agent-task", ["list", "view"]], decision="allow", justification="Read GitHub agent task data")
 prefix_rule(pattern=["gh", "alias", "list"], decision="allow", justification="List GitHub CLI aliases")
 prefix_rule(pattern=["gh", "attestation", ["trusted-root", "verify"]], decision="allow", justification="Inspect or verify GitHub artifact attestations")
+prefix_rule(pattern=["gh", "auth", "status"], decision="allow", justification="Read GitHub authentication status")
 prefix_rule(pattern=["gh", "cache", "list"], decision="allow", justification="List GitHub Actions caches")
 prefix_rule(pattern=["gh", "codespace", ["list", "logs", "view"]], decision="allow", justification="Inspect GitHub Codespaces")
 prefix_rule(pattern=["gh", "config", ["get", "list"]], decision="allow", justification="Read GitHub CLI configuration")
