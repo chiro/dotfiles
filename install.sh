@@ -130,6 +130,19 @@ ln -sfnT "${DOTFILES_DIR}"/codex/rules "${HOME}"/.codex/rules
 mkdir -p "${HOME}"/.codex/skills
 ln -sfnT "${DOTFILES_DIR}"/codex/skills/simplify "${HOME}"/.codex/skills/simplify
 
+# sanitize-artifacts has no license upstream, so download it instead of vendoring it.
+# Pinned to a commit so upstream changes are reviewed before agents load them.
+SANITIZE_ARTIFACTS_URL=https://raw.githubusercontent.com/kotek-7/dotfiles/14d1dbf15498e3988bd089e0d06381ae6f6019a1/dot_agents/skills/sanitize-artifacts
+if ! command -v curl >/dev/null; then
+    install_packages curl
+fi
+mkdir -p "${HOME}"/.codex/skills/sanitize-artifacts/agents
+for file in SKILL.md agents/openai.yaml; do
+    curl -fsSL -o "${HOME}"/.codex/skills/sanitize-artifacts/"${file}" "${SANITIZE_ARTIFACTS_URL}"/"${file}"
+done
+mkdir -p "${HOME}"/.claude/skills
+ln -sfnT "${HOME}"/.codex/skills/sanitize-artifacts "${HOME}"/.claude/skills/sanitize-artifacts
+
 # Alacritty
 mkdir -p "${HOME}"/.config/alacritty
 ln -sf "${DOTFILES_DIR}"/alacritty.toml "${HOME}"/.config/alacritty/alacritty.toml
