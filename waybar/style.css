@@ -1,0 +1,52 @@
+/* Colors and spacing follow polybar.config.ini. */
+* {
+  font-family: "Ricty Diminished", "Symbols Nerd Font Mono";
+  font-size: 10pt;
+  min-height: 0;
+  border: none;
+  border-radius: 0;
+}
+
+window#waybar {
+  background-color: #282a2e;
+  color: #c5c8c6;
+  border-radius: 6px;
+}
+
+tooltip {
+  background-color: #282a2e;
+  border: 1px solid #373b41;
+}
+
+/* polybar module-margin = 1 and separator = |. */
+.modules-left > widget > *,
+.modules-right > widget > * {
+  padding: 0 0.6em;
+}
+
+.modules-left > widget:not(:first-child) > *,
+.modules-right > widget:not(:first-child) > * {
+  border-left: 1px solid #707880;
+  margin: 7px 0;
+}
+
+/* polybar padding-left = 0 and padding-right = 1. */
+#custom-workspaces {
+  padding-left: 0;
+}
+
+.modules-right > widget:last-child > * {
+  margin-right: 0.6em;
+}
+
+#clock {
+  color: #f0c674;
+}
+
+#battery.low:not(.charging) {
+  color: #a54242;
+}
+
+#tray {
+  margin-left: 8pt;
+}

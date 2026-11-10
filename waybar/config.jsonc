@@ -1,9 +1,105 @@
+// Mirrors polybar.config.ini. Icon spans copy polybar's second font and primary color.
 {
-  "modules-left": ["custom/seki"],
-  "custom/seki": {
-    "exec": "exec python3 ~/.config/waybar/seki.py",
+  "height": 32,
+  "margin-top": 3,
+  "margin-left": 3,
+  "margin-right": 3,
+  "spacing": 0,
+  "modules-left": ["custom/workspaces", "custom/layout", "custom/title"],
+  "modules-right": [
+    "battery",
+    "disk",
+    "backlight",
+    "pulseaudio",
+    "memory",
+    "cpu",
+    "network#wlan",
+    "network#eth",
+    "clock",
+    "tray"
+  ],
+
+  "custom/workspaces": {
+    "exec": "exec python3 ~/.config/waybar/seki.py workspaces",
     "return-type": "json",
-    "format": "{}",
+    "restart-interval": 2,
+    "on-scroll-up": "python3 ~/.config/waybar/seki.py scroll up",
+    "on-scroll-down": "python3 ~/.config/waybar/seki.py scroll down"
+  },
+  "custom/layout": {
+    "exec": "exec python3 ~/.config/waybar/seki.py layout",
+    "return-type": "json",
+    "restart-interval": 2,
+    "on-click": "sekictl layout next"
+  },
+  "custom/title": {
+    "exec": "exec python3 ~/.config/waybar/seki.py title",
+    "return-type": "json",
     "restart-interval": 2
+  },
+
+  "battery": {
+    "interval": 5,
+    "states": { "low": 10 },
+    "format": "<span color='#F0C674' font='Symbols Nerd Font Mono 12'>{icon}</span> {capacity}%",
+    "format-charging": "<span color='#F0C674' font='Symbols Nerd Font Mono 12'>󰂄</span> {capacity}%",
+    "format-full": "<span color='#F0C674' font='Symbols Nerd Font Mono 12'>{icon}</span> Fully charged",
+    "format-low": "BATTERY LOW",
+    "format-icons": ["󰁺", "󰁼", "󰁾", "󰂀", "󰂂"]
+  },
+  "disk": {
+    "interval": 25,
+    "path": "/",
+    "format": "<span color='#F0C674' font='Symbols Nerd Font Mono 12'>󰋊</span> {percentage_used}%"
+  },
+  "backlight": {
+    "format": "<span color='#F0C674' font='Symbols Nerd Font Mono 12'>{icon}</span> {percent}%",
+    "format-icons": ["󰃚", "󰃛", "󰃜", "󰃝", "󰃞", "󰃟", "󰃠"],
+    // brightnessctl is what the brightness keys run, so both use the same steps.
+    "on-scroll-up": "brightnessctl set 5%+",
+    "on-scroll-down": "brightnessctl set 5%-"
+  },
+  "pulseaudio": {
+    "format": "<span color='#F0C674' font='Symbols Nerd Font Mono 12'>{icon}</span> {volume}%",
+    "format-bluetooth": "<span color='#F0C674' font='Symbols Nerd Font Mono 12'>{icon}</span> {volume}%",
+    "format-muted": "<span color='#707880' font='Symbols Nerd Font Mono 12'>󰝟</span>",
+    "format-icons": ["󰕿", "󰖀", "󰕾"],
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+  },
+  "memory": {
+    "interval": 2,
+    "format": "<span color='#F0C674' font='Symbols Nerd Font Mono 12'>󰍛</span> {percentage:2}%"
+  },
+  "cpu": {
+    "interval": 2,
+    "format": "<span color='#F0C674' font='Symbols Nerd Font Mono 12'>󰻠</span> {usage:2}%"
+  },
+  "network#wlan": {
+    "interface": "wl*",
+    "interval": 5,
+    "format-wifi": "<span color='#F0C674' font='Symbols Nerd Font Mono 12'>{icon}</span> {essid}",
+    "format-ethernet": "",
+    "format-linked": "",
+    "format-disconnected": "<span color='#F0C674'>{ifname}</span><span color='#707880'> disconnected</span>",
+    "format-icons": ["󰤟", "󰤢", "󰤥", "󰤨"],
+    "tooltip-format": "{ifname} {ipaddr}"
+  },
+  "network#eth": {
+    "interface": "en*",
+    "interval": 5,
+    "format-ethernet": "<span color='#F0C674' font='Symbols Nerd Font Mono 12'>󰈀</span> {ipaddr}",
+    "format-wifi": "",
+    // Hide the module when the cable is unplugged.
+    "format-linked": "",
+    "format-disconnected": ""
+  },
+  "clock": {
+    "interval": 1,
+    "format": "<span font='Symbols Nerd Font Mono 12'>󰅐</span> {:%H:%M}",
+    "format-alt": "<span font='Symbols Nerd Font Mono 12'>󰅐</span> {:%Y-%m-%d %H:%M:%S}",
+    "tooltip": false
+  },
+  "tray": {
+    "spacing": 21
   }
 }

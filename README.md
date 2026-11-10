@@ -38,7 +38,7 @@ The script creates these links:
 | `polybar.config.ini`, `polybar.launch.sh` | `~/.config/polybar/` |
 | `river/init` | `~/.config/river/init` |
 | `seki/Main.hs`, `seki/PortedConfig.hs`, `seki/seki-user.cabal` | `~/.config/seki/` |
-| `waybar/config.jsonc`, `waybar/seki.py` | `~/.config/waybar/` |
+| `waybar/config.jsonc`, `waybar/seki.py`, `waybar/style.css` | `~/.config/waybar/` |
 | `.claude/` shared settings and agents | `~/.claude/` |
 | `codex/rules/` | `~/.codex/rules` |
 | `codex/skills/simplify/` | `~/.codex/skills/simplify` |

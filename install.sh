@@ -128,6 +128,7 @@ fi
 mkdir -p "${HOME}"/.config/waybar
 ln -sf "${DOTFILES_DIR}"/waybar/config.jsonc "${HOME}"/.config/waybar/config.jsonc
 ln -sf "${DOTFILES_DIR}"/waybar/seki.py "${HOME}"/.config/waybar/seki.py
+ln -sf "${DOTFILES_DIR}"/waybar/style.css "${HOME}"/.config/waybar/style.css
 
 if ! fc-list : family 2>/dev/null | grep -Fq "Symbols Nerd Font Mono"; then
     echo "Symbols Nerd Font Mono not found. Installing..."
