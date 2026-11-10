@@ -102,6 +102,33 @@ mkdir -p "${HOME}"/.config/polybar
 ln -sf "${DOTFILES_DIR}"/polybar.config.ini "${HOME}"/.config/polybar/config.ini
 ln -sf "${DOTFILES_DIR}"/polybar.launch.sh "${HOME}"/.config/polybar/launch.sh
 
+# river/seki
+# The Nix result link is also the GC root that keeps the delivery's closure alive.
+SEKI_DELIVERY="${HOME}"/.local/share/seki-delivery
+if [[ ! -e "${SEKI_DELIVERY}" ]]; then
+    if command -v nix >/dev/null 2>&1; then
+        echo "seki not found. Building..."
+        nix --extra-experimental-features 'nix-command flakes' build \
+            github:chiro/seki#config-delivery -o "${SEKI_DELIVERY}"
+    else
+        echo "nix not found. Skipping the seki build." >&2
+    fi
+fi
+mkdir -p "${HOME}"/.config/river
+ln -sf "${DOTFILES_DIR}"/river/init "${HOME}"/.config/river/init
+# seki generates cabal.project itself because it names Nix store paths.
+mkdir -p "${HOME}"/.config/seki
+for file in Main.hs PortedConfig.hs seki-user.cabal; do
+    ln -sf "${DOTFILES_DIR}"/seki/"${file}" "${HOME}"/.config/seki/"${file}"
+done
+if [[ ! -f "${HOME}"/.config/seki/keymap.xkb ]]; then
+    xkbcli compile-keymap --rules evdev --model pc105 --layout us --options ctrl:nocaps \
+        > "${HOME}"/.config/seki/keymap.xkb
+fi
+mkdir -p "${HOME}"/.config/waybar
+ln -sf "${DOTFILES_DIR}"/waybar/config.jsonc "${HOME}"/.config/waybar/config.jsonc
+ln -sf "${DOTFILES_DIR}"/waybar/seki.py "${HOME}"/.config/waybar/seki.py
+
 if ! fc-list : family 2>/dev/null | grep -Fq "Symbols Nerd Font Mono"; then
     echo "Symbols Nerd Font Mono not found. Installing..."
     install_packages curl fontconfig

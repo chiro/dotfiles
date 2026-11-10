@@ -1,0 +1,10 @@
+cabal-version: 3.0
+name: seki-user
+version: 0.1.0.0
+build-type: Simple
+executable seki-user
+  main-is: Main.hs
+  other-modules: PortedConfig
+  default-language: GHC2021
+  ghc-options: -threaded -rtsopts
+  build-depends: base >=4.20 && <4.21, seki ==0.1.0.0

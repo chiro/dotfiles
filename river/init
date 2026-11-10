@@ -1,0 +1,6 @@
+#!/bin/sh
+export PATH="$HOME/.local/share/seki-delivery/bin:$PATH"
+export GTK_IM_MODULE=fcitx QT_IM_MODULE=fcitx XMODIFIERS=@im=fcitx
+log="${XDG_STATE_HOME:-$HOME/.local/state}/seki/session.log"
+mkdir -p "${log%/*}"
+while true; do seki >> "$log" 2>&1; sleep 1; done &

@@ -18,7 +18,7 @@ This script installs tools via asdf (ruby, ghq, peco, uv, nodejs), the Nerd Font
 
 - **Emacs**: `.emacs.d/init.el` bootstraps package management (use-package + MELPA) and loads config modules from `.emacs.d/inits/` via init-loader. Files in `inits/` are loaded in lexicographic order (prefix numbers control load order).
 - **Shell**: `.bashrc` and `.bash_aliases`
-- **Window Manager**: XMonad (`.xmonad/xmonad.hs`) with Polybar (`polybar.config.ini`)
+- **Window Manager**: seki on river (`seki/`, `river/init`) with Waybar (`waybar/`). seki is configured in Haskell like XMonad; `seki/PortedConfig.hs` holds the configuration. The older X11 setup, XMonad (`.xmonad/xmonad.hs`) with Polybar (`polybar.config.ini`), is still in the repository.
 - **Terminal**: Alacritty (`alacritty.toml`)
 - **Git**: `.gitconfig`, `.gitignore`
 - **Tmux**: `.tmux.conf`

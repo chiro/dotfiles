@@ -1,0 +1,9 @@
+{
+  "modules-left": ["custom/seki"],
+  "custom/seki": {
+    "exec": "exec python3 ~/.config/waybar/seki.py",
+    "return-type": "json",
+    "format": "{}",
+    "restart-interval": 2
+  }
+}
