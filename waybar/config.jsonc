@@ -39,6 +39,7 @@
   },
 
   "battery": {
+    "bat": "BAT0",
     "interval": 5,
     "states": { "low": 10 },
     "format": "<span color='#F0C674' font='Symbols Nerd Font Mono 12'>{icon}</span> {capacity}%",
